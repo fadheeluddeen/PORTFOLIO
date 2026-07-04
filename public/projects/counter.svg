@@ -1,0 +1,16 @@
+<svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg"><defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#0b0c11"/><stop offset="1" stop-color="#12141f"/>
+</linearGradient>
+<radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+<stop offset="0" stop-color="#22d3ee" stop-opacity="0.38"/>
+<stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+</radialGradient>
+<pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+<path d="M44 0H0V44" fill="none" stroke="#ffffff" stroke-opacity="0.045" stroke-width="1"/>
+</pattern>
+</defs>
+<rect width="1280" height="720" fill="url(#bg)"/>
+<rect width="1280" height="720" fill="url(#grid)"/>
+<ellipse cx="980" cy="200" rx="560" ry="420" fill="url(#glow)"/>
+<ellipse cx="220" cy="640" rx="380" ry="300" fill="url(#glow)" opacity="0.5"/><g fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="430" y="212" width="420" height="300" rx="26" stroke="#eef2fb" stroke-width="10"/><line x1="430" y1="272" x2="850" y2="272" stroke="#eef2fb" stroke-width="8"/><circle cx="470" cy="242" r="8" fill="#22d3ee" stroke="none"/><circle cx="500" cy="242" r="8" fill="#eef2fb" stroke="none"/><circle cx="530" cy="242" r="8" fill="#eef2fb" stroke="none"/><circle cx="640" cy="372" r="74" stroke="#eef2fb" stroke-opacity="0.22" stroke-width="16"/><path d="M587.7 424.3 A74 74 0 1 1 692.3 424.3" stroke="#22d3ee" stroke-width="16"/><line x1="640" y1="372" x2="678" y2="332" stroke="#eef2fb" stroke-width="9"/><circle cx="640" cy="372" r="8" fill="#eef2fb" stroke="none"/></g></svg>

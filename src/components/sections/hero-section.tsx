@@ -88,7 +88,7 @@ export function HeroSection() {
             <div className="relative aspect-[4/5]">
               <img src={site.profilePath} alt={`Portrait of ${site.name}`} className="size-full object-cover" />
               <Badge className="absolute top-4 left-4 rounded-full">{hero.badge}</Badge>
-              <div className="bg-background/95 absolute right-4 bottom-4 rounded-lg border px-3 py-2">
+              <div className="bg-background/95 absolute left-4 bottom-4 rounded-lg border px-3 py-2">
                 <p className="text-primary text-sm font-semibold">{hero.caption.title}</p>
                 <p className="text-muted-foreground text-[10px] font-semibold tracking-[0.16em] uppercase">{hero.caption.subtitle}</p>
               </div>

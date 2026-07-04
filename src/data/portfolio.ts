@@ -199,7 +199,7 @@ export const projects = {
       description:
         "Resume-aware interview simulator that asks contextual questions and gives constructive feedback.",
       image:
-        "https://images.unsplash.com/photo-1579567761406-4684ee0c75b6?auto=format&fit=crop&w=900&q=70",
+        `${import.meta.env.BASE_URL}projects/interview.svg`,
       tags: ["Python", "LLMs", "NLP", "Prompt Engineering"],
     },
     {
@@ -208,7 +208,7 @@ export const projects = {
       description:
         "Lightweight rule + ML system that predicts likely medical conditions from symptom inputs.",
       image:
-        "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?auto=format&fit=crop&w=900&q=70",
+        `${import.meta.env.BASE_URL}projects/medical.svg`,
       tags: ["Python", "scikit-learn", "Decision Trees"],
     },
     {
@@ -217,7 +217,7 @@ export const projects = {
       description:
         "Generates clean React UI layouts from natural-language prompts — design at the speed of thought.",
       image:
-        "https://images.pexels.com/photos/18069160/pexels-photo-18069160.png?auto=compress&w=900",
+        `${import.meta.env.BASE_URL}projects/uigen.svg`,
       tags: ["JavaScript", "React", "AI Automation"],
     },
     {
@@ -226,7 +226,7 @@ export const projects = {
       description:
         "Role-based IT ticketing system with a help-center module, built for an enterprise workflow.",
       image:
-        "https://images.unsplash.com/photo-1610366398516-46da9dec5931?auto=format&fit=crop&w=900&q=70",
+        `${import.meta.env.BASE_URL}projects/ticketing.svg`,
       tags: ["React 19", "TypeScript", "Vite", "Firebase"],
     },
     {
@@ -235,7 +235,7 @@ export const projects = {
       description:
         "Open-source Electron app wrapping claude.ai with live usage tracking and quota awareness.",
       image:
-        "https://images.pexels.com/photos/28494632/pexels-photo-28494632.jpeg?auto=compress&w=900",
+        `${import.meta.env.BASE_URL}projects/counter.svg`,
       tags: ["Electron", "Node.js", "JavaScript", "pnpm"],
     },
     {
@@ -244,7 +244,7 @@ export const projects = {
       description:
         "I2C-based hardware display assembly with embedded firmware — bare-metal precision.",
       image:
-        "https://images.unsplash.com/photo-1689443111130-6e9c7dfd8f9e?auto=format&fit=crop&w=900&q=70",
+        `${import.meta.env.BASE_URL}projects/microcontroller.svg`,
       tags: ["C", "C++", "Embedded", "I2C"],
     },
   ],
