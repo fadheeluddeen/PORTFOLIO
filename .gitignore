@@ -4,10 +4,6 @@ node_modules
 # Build
 dist
 
-# Local assets (keep private)
-profile.jpeg
-Fadheeluddeen_Resume.pdf
-
 # Logs
 *.log
 npm-debug.log*
