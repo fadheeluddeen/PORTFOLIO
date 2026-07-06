@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { CountUp } from "@/components/count-up";
 import { ParticleHero } from "@/components/particle-hero";
 import { hero, site } from "@/data/portfolio";
 
@@ -57,7 +58,7 @@ export function HeroSection() {
           <Badge variant="secondary" className="rounded-full px-3 py-1">✦ {hero.kicker}</Badge>
           <div className="space-y-4">
             <h1 className="text-4xl leading-[1.05] font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              {hero.headline}<br /><span className="text-primary">{hero.highlight}</span>
+              {hero.headline}<br /><span className="gradient-shimmer">{hero.highlight}</span>
             </h1>
             <p className="text-muted-foreground max-w-xl text-lg leading-relaxed">{hero.tagline}</p>
           </div>
@@ -76,7 +77,7 @@ export function HeroSection() {
             {hero.stats.map((stat) => (
               <Card key={stat.label} className="py-4 shadow-none">
                 <CardContent className="space-y-1 px-4">
-                  <p className="text-primary text-xl font-bold">{stat.value}</p>
+                  <p className="text-primary text-xl font-bold"><CountUp value={stat.value} /></p>
                   <p className="text-muted-foreground text-[11px] font-semibold tracking-[0.16em] uppercase">{stat.label}</p>
                 </CardContent>
               </Card>

@@ -3,6 +3,8 @@ import { Toaster } from "sonner";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { BackToTop } from "@/components/back-to-top";
+import { ScrollProgress } from "@/components/scroll-progress";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { AboutSection } from "@/components/sections/about-section";
@@ -26,6 +28,7 @@ export default function App() {
 
   return (
     <div className="dark min-h-screen">
+      <ScrollProgress />
       <Header />
       <main>
         <HeroSection />
@@ -38,6 +41,7 @@ export default function App() {
         <ContactSection />
       </main>
       <Footer />
+      <BackToTop />
       <Toaster position="bottom-center" richColors />
     </div>
   );
