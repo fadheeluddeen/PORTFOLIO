@@ -198,8 +198,7 @@ export const projects = {
       title: "AI-Driven Interactive Interview System",
       description:
         "Resume-aware interview simulator that asks contextual questions and gives constructive feedback.",
-      image:
-        `${import.meta.env.BASE_URL}projects/interview.svg`,
+      image: `${import.meta.env.BASE_URL}project-01-interview.jpg`,
       tags: ["Python", "LLMs", "NLP", "Prompt Engineering"],
     },
     {
@@ -207,8 +206,7 @@ export const projects = {
       title: "Symptom-Based Medical Diagnosis Tool",
       description:
         "Lightweight rule + ML system that predicts likely medical conditions from symptom inputs.",
-      image:
-        `${import.meta.env.BASE_URL}projects/medical.svg`,
+      image: `${import.meta.env.BASE_URL}project-02-medical.jpg`,
       tags: ["Python", "scikit-learn", "Decision Trees"],
     },
     {
@@ -216,8 +214,7 @@ export const projects = {
       title: "AI-Based UI Generator",
       description:
         "Generates clean React UI layouts from natural-language prompts — design at the speed of thought.",
-      image:
-        `${import.meta.env.BASE_URL}projects/uigen.svg`,
+      image: `${import.meta.env.BASE_URL}project-03-ui-generator.png`,
       tags: ["JavaScript", "React", "AI Automation"],
     },
     {
@@ -225,8 +222,7 @@ export const projects = {
       title: "TSPL IT Ticketing Portal",
       description:
         "Role-based IT ticketing system with a help-center module, built for an enterprise workflow.",
-      image:
-        `${import.meta.env.BASE_URL}projects/ticketing.svg`,
+      image: `${import.meta.env.BASE_URL}project-04-ticketing.jpg`,
       tags: ["React 19", "TypeScript", "Vite", "Firebase"],
     },
     {
@@ -234,8 +230,7 @@ export const projects = {
       title: "Claude Counter Desktop",
       description:
         "Open-source Electron app wrapping claude.ai with live usage tracking and quota awareness.",
-      image:
-        `${import.meta.env.BASE_URL}projects/counter.svg`,
+      image: `${import.meta.env.BASE_URL}project-05-claude.jpeg`,
       tags: ["Electron", "Node.js", "JavaScript", "pnpm"],
     },
     {
@@ -243,8 +238,7 @@ export const projects = {
       title: "Microcontroller Display System",
       description:
         "I2C-based hardware display assembly with embedded firmware — bare-metal precision.",
-      image:
-        `${import.meta.env.BASE_URL}projects/microcontroller.svg`,
+      image: `${import.meta.env.BASE_URL}project-06-microcontroller.jpg`,
       tags: ["C", "C++", "Embedded", "I2C"],
     },
   ],
@@ -290,8 +284,7 @@ export const blog = {
       excerpt:
         "Notes from shipping an EasyOCR + Qwen2.5-VL pipeline — what works, what breaks, and what no tutorial tells you.",
       readTime: "6 min read",
-      image:
-        "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=900&q=70",
+      image: `${import.meta.env.BASE_URL}blog-01-ocr.jpg`,
     },
     {
       category: "LLMs",
@@ -299,8 +292,7 @@ export const blog = {
       excerpt:
         "A pragmatic framework for designing prompts the same way you design APIs — versioned, tested, observable.",
       readTime: "8 min read",
-      image:
-        "https://images.unsplash.com/photo-1655720828018-edd2daec9349?auto=format&fit=crop&w=900&q=70",
+      image: `${import.meta.env.BASE_URL}blog-02-prompt.jpg`,
     },
     {
       category: "Machine Learning",
@@ -308,8 +300,7 @@ export const blog = {
       excerpt:
         "If classical ML is your home base, here's the smallest possible path to feeling at home in deep learning.",
       readTime: "5 min read",
-      image:
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=70",
+      image: `${import.meta.env.BASE_URL}blog-03-pytorch.jpg`,
     },
   ],
 } as const;
