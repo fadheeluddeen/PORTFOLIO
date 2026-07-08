@@ -2,6 +2,8 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { Quote } from "lucide-react";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeader, SectionShell } from "@/components/layout/section-shell";
 import { testimonials } from "@/data/portfolio";
@@ -37,7 +39,8 @@ export function TestimonialsSection() {
       <SectionHeader kicker={testimonials.kicker} title={testimonials.title} subtitle={testimonials.subtitle} />
       <div ref={cardsRef} className="grid gap-6 md:grid-cols-3">
         {testimonials.items.map((item) => (
-          <Card key={item.name} className="shadow-none">
+          <Card key={item.name} className="hover:border-primary/40 hover:shadow-primary/5 relative overflow-hidden shadow-none transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <Quote aria-hidden="true" className="text-primary/10 absolute -top-2 -right-2 size-24 rotate-12" />
             <CardContent className="space-y-4 pt-6">
               <div className="bg-primary/10 flex size-12 items-center justify-center rounded-full text-lg font-bold text-primary">{item.initial}</div>
               <blockquote className="text-muted-foreground leading-relaxed">"{item.quote}"</blockquote>

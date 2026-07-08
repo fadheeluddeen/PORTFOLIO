@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function ExperienceSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
   const educationRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,6 +20,16 @@ export function ExperienceSection() {
     if (!section) return;
 
     const ctx = gsap.context(() => {
+      if (lineRef.current && timelineRef.current) {
+        gsap.fromTo(
+          lineRef.current,
+          { scaleY: 0 },
+          {
+            scaleY: 1, ease: "none",
+            scrollTrigger: { trigger: timelineRef.current, start: "top 75%", end: "bottom 45%", scrub: 0.6 },
+          }
+        );
+      }
       if (timelineRef.current) {
         gsap.fromTo(
           timelineRef.current.children,
@@ -48,7 +59,12 @@ export function ExperienceSection() {
     <SectionShell id="experience">
       <SectionHeader kicker={experience.kicker} title={experience.title} subtitle={experience.subtitle} />
       <div ref={sectionRef} className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
-        <div ref={timelineRef} className="relative space-y-6 border-l pl-8">
+        <div ref={timelineRef} className="border-border/40 relative space-y-6 border-l pl-8">
+          <div
+            ref={lineRef}
+            aria-hidden="true"
+            className="from-primary absolute top-0 bottom-0 -left-px w-px origin-top bg-gradient-to-b via-[oklch(0.6_0.18_195)] to-transparent"
+          />
           {experience.jobs.map((job) => (
             <div key={job.company} className="relative">
               <span className="bg-primary absolute top-6 -left-[41px] size-3 rounded-full ring-4 ring-background" />

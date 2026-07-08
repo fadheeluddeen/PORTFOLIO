@@ -1,5 +1,6 @@
 import { type ReactNode } from "react";
 
+import { TextReveal } from "@/components/text-reveal";
 import { cn } from "@/lib/utils";
 
 type SectionHeaderProps = {
@@ -28,7 +29,11 @@ export function SectionHeader({
         <p className="text-primary text-xs font-semibold tracking-[0.2em] uppercase">
           {kicker}
         </p>
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
+        <TextReveal
+          as="h2"
+          text={title}
+          className="text-3xl font-bold tracking-tight sm:text-4xl"
+        />
         {subtitle ? (
           <p className="text-muted-foreground text-base leading-relaxed">{subtitle}</p>
         ) : null}

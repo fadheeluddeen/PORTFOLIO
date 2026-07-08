@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectionHeader, SectionShell } from "@/components/layout/section-shell";
+import { VelocityMarquee } from "@/components/velocity-marquee";
 import { marqueeSkills, skillGroups } from "@/data/portfolio";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -13,7 +14,8 @@ export function SkillsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
-  const track = [...marqueeSkills, ...marqueeSkills];
+  const firstRow = marqueeSkills.slice(0, Math.ceil(marqueeSkills.length / 2));
+  const secondRow = marqueeSkills.slice(Math.ceil(marqueeSkills.length / 2));
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -56,12 +58,21 @@ export function SkillsSection() {
           />
         </div>
       </div>
-      <div className="border-border/60 overflow-hidden border-y py-4">
-        <div className="animate-marquee flex w-max gap-3">
-          {track.map((skill, index) => (
-            <Badge key={`${skill}-${index}`} variant="outline" className="rounded-full px-3 py-1">{skill}</Badge>
+      <div className="border-border/60 space-y-3 overflow-hidden border-y py-4">
+        <VelocityMarquee baseVelocity={45}>
+          {firstRow.map((skill) => (
+            <Badge key={skill} variant="outline" className="mr-3 rounded-full px-4 py-1.5 text-sm">
+              {skill}
+            </Badge>
           ))}
-        </div>
+        </VelocityMarquee>
+        <VelocityMarquee baseVelocity={-45}>
+          {secondRow.map((skill) => (
+            <Badge key={skill} variant="secondary" className="mr-3 rounded-full px-4 py-1.5 text-sm">
+              {skill}
+            </Badge>
+          ))}
+        </VelocityMarquee>
       </div>
       <div ref={cardsRef} className="grid gap-5 py-20 md:grid-cols-2 xl:grid-cols-3">
         {skillGroups.map((group) => (

@@ -1,11 +1,13 @@
 import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Copy, Check, Mail, Phone, Linkedin, Github } from "lucide-react";
+import { Copy, Check, Mail, Phone, Linkedin, Github, ArrowUpRight } from "lucide-react";
 import { toast } from "sonner";
 
+import { AuroraBackground } from "@/components/aurora-background";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Magnetic } from "@/components/magnetic";
 import { SectionHeader, SectionShell } from "@/components/layout/section-shell";
 import { contact, site } from "@/data/portfolio";
 
@@ -57,6 +59,28 @@ export function ContactSection() {
   return (
     <SectionShell id="contact">
       <SectionHeader kicker={contact.kicker} title={contact.title} subtitle={contact.subtitle} />
+
+      <div className="glow-border relative mb-10 overflow-hidden rounded-2xl border p-8 md:p-12">
+        <AuroraBackground variant="hero" className="rounded-2xl opacity-70" />
+        <div className="relative z-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+          <div className="space-y-2">
+            <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">
+              Have an idea that needs shipping?
+            </h3>
+            <p className="text-muted-foreground max-w-md">
+              I reply fast, prototype faster, and I'm currently open to AI/ML roles and freelance builds.
+            </p>
+          </div>
+          <Magnetic strength={0.45}>
+            <Button asChild size="lg" className="shadow-primary/30 rounded-full px-8 shadow-lg">
+              <a href={`mailto:${site.email}`}>
+                Say hello <ArrowUpRight />
+              </a>
+            </Button>
+          </Magnetic>
+        </div>
+      </div>
+
       <div ref={cardsRef} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {channels.map((channel) => (
           <Card key={channel.label} className="group shadow-none transition-all duration-300 hover:border-primary/50">
