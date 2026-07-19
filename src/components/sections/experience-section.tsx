@@ -1,122 +1,74 @@
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { GraduationCap, Briefcase } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SectionHeader, SectionShell } from "@/components/layout/section-shell";
 import { experience } from "@/data/portfolio";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export function ExperienceSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
-  const educationRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      if (lineRef.current && timelineRef.current) {
-        gsap.fromTo(
-          lineRef.current,
-          { scaleY: 0 },
-          {
-            scaleY: 1, ease: "none",
-            scrollTrigger: { trigger: timelineRef.current, start: "top 75%", end: "bottom 45%", scrub: 0.6 },
-          }
-        );
-      }
-      if (timelineRef.current) {
-        gsap.fromTo(
-          timelineRef.current.children,
-          { opacity: 0, x: -60, scale: 0.97 },
-          {
-            opacity: 1, x: 0, scale: 1, duration: 0.7, stagger: 0.2, ease: "power3.out",
-            scrollTrigger: { trigger: timelineRef.current, start: "top 80%", toggleActions: "play none none reverse" },
-          }
-        );
-      }
-      if (educationRef.current) {
-        gsap.fromTo(
-          educationRef.current.children,
-          { opacity: 0, x: 60, scale: 0.97 },
-          {
-            opacity: 1, x: 0, scale: 1, duration: 0.7, stagger: 0.15, ease: "power3.out",
-            scrollTrigger: { trigger: educationRef.current, start: "top 80%", toggleActions: "play none none reverse" },
-          }
-        );
-      }
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <SectionShell id="experience">
-      <SectionHeader kicker={experience.kicker} title={experience.title} subtitle={experience.subtitle} />
-      <div ref={sectionRef} className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
-        <div ref={timelineRef} className="border-border/40 relative space-y-6 border-l pl-8">
-          <div
-            ref={lineRef}
-            aria-hidden="true"
-            className="from-primary absolute top-0 bottom-0 -left-px w-px origin-top bg-gradient-to-b via-[oklch(0.6_0.18_195)] to-transparent"
-          />
+    <section id="experience" className="section-anchor relative py-24 md:py-32">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="mb-14 text-center">
+          <span className="text-primary text-sm font-bold tracking-wide uppercase">
+            {experience.kicker}
+          </span>
+          <h2 className="font-display mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">
+            {experience.title}
+          </h2>
+          <p className="text-muted-foreground mt-3">{experience.subtitle}</p>
+        </div>
+
+        <div className="space-y-6">
           {experience.jobs.map((job) => (
-            <div key={job.company} className="relative">
-              <span className="bg-primary absolute top-6 -left-[41px] size-3 rounded-full ring-4 ring-background" />
-              <Card className="shadow-none">
-                <CardContent className="space-y-4 pt-6">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <Badge variant="secondary">{job.role}</Badge>
-                    <span className="text-primary font-semibold">@ {job.company}</span>
-                    <Badge variant="outline">{job.location}</Badge>
+            <div key={job.company} className="tilt-card glass-panel rounded-3xl p-6 sm:p-8">
+              <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
+                <div className="flex items-start gap-4">
+                  <span className="bg-3d flex size-11 shrink-0 items-center justify-center rounded-xl">
+                    <Briefcase className="size-5" />
+                  </span>
+                  <div>
+                    <h3 className="font-display text-lg font-bold">{job.role}</h3>
+                    <p className="text-muted-foreground text-sm font-semibold">
+                      {job.company} · {job.location}
+                    </p>
                   </div>
-                  <p className="text-muted-foreground text-xs font-semibold tracking-[0.16em] uppercase">{job.period}</p>
-                  <ul className="space-y-2">
-                    {job.bullets.map((bullet) => (
-                      <li key={bullet.slice(0, 30)} className="text-muted-foreground flex gap-2 text-sm">
-                        <span className="text-primary mt-1.5 size-1.5 shrink-0 rounded-full" />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {job.tags.map((tag) => <Badge key={tag} variant="outline" className="text-[10px]">{tag}</Badge>)}
-                  </div>
-                </CardContent>
-              </Card>
+                </div>
+                <span className="skill-chip w-fit shrink-0 text-xs">{job.period}</span>
+              </div>
+
+              <ul className="text-foreground/80 mt-5 space-y-2 pl-1">
+                {job.bullets.map((bullet) => (
+                  <li key={bullet} className="flex gap-2 text-sm leading-relaxed sm:text-base">
+                    <span className="text-primary mt-1.5 block size-1.5 shrink-0 rounded-full bg-current" />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {job.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="bg-accent text-accent-foreground rounded-full px-3 py-1 text-xs font-bold"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
-        <div ref={educationRef} className="space-y-6">
-          <Card className="shadow-none">
-            <CardHeader><CardTitle>Education</CardTitle></CardHeader>
-            <CardContent className="space-y-4">
-              {experience.education.map((edu) => (
-                <div key={edu.school}>
-                  <p className="font-semibold">{edu.school}</p>
-                  <p className="text-muted-foreground text-sm whitespace-pre-line">{edu.detail}</p>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
-          <Card className="shadow-none">
-            <CardHeader><CardTitle>Certifications</CardTitle></CardHeader>
-            <CardContent className="space-y-2">
-              {experience.certifications.map((cert) => (
-                <div key={cert} className="flex items-center gap-2">
-                  <span className="text-primary size-2 rounded-full" />
-                  <p className="text-muted-foreground text-sm">{cert}</p>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
+
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          {experience.education.map((edu) => (
+            <div key={edu.school} className="glass-panel rounded-3xl p-6">
+              <span className="bg-3d mb-3 flex size-11 items-center justify-center rounded-xl">
+                <GraduationCap className="size-5" />
+              </span>
+              <h4 className="font-display font-bold">{edu.school}</h4>
+              <p className="text-muted-foreground mt-1 text-sm">{edu.detail}</p>
+            </div>
+          ))}
         </div>
       </div>
-    </SectionShell>
+    </section>
   );
 }

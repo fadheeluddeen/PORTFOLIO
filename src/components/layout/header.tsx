@@ -44,79 +44,92 @@ export function Header() {
   }, []);
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 transition-all duration-300",
-        scrolled && "border-border/60 bg-background/85 backdrop-blur-xl",
-      )}
-    >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="#top" className="flex items-center gap-3 font-semibold tracking-tight">
-          <span className="bg-primary text-primary-foreground flex size-9 items-center justify-center rounded-lg text-sm font-bold">
+    <>
+      {/* Desktop floating pill nav */}
+      <header
+        className={cn(
+          "fixed inset-x-0 top-4 z-50 mx-auto hidden w-fit max-w-[calc(100%-2rem)] items-center gap-1 rounded-full px-2 py-2 transition-all duration-300 md:flex",
+          "glass-panel shadow-[0_20px_45px_-20px_rgba(0,0,0,0.25)]",
+        )}
+      >
+        <a
+          href="#top"
+          className="text-foreground mr-1 flex items-center gap-2 rounded-full px-3 py-2 text-sm font-bold tracking-tight font-display"
+        >
+          <span className="bg-3d flex size-8 items-center justify-center rounded-xl text-xs font-extrabold">
             FK
           </span>
-          <span>{site.brand}</span>
         </a>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="flex items-center gap-1">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className={cn(
-                "text-muted-foreground hover:text-foreground relative rounded-md px-3 py-2 text-sm font-medium transition-colors",
-                active === link.href && "text-foreground",
+                "text-muted-foreground hover:text-foreground rounded-full px-3.5 py-2 text-sm font-semibold transition-colors",
+                active === link.href && "bg-accent text-accent-foreground",
               )}
             >
               {link.label}
-              {active === link.href && (
-                <span className="bg-primary absolute inset-x-3 -bottom-px h-0.5 rounded-full" />
-              )}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <Button asChild size="sm" className="hidden sm:inline-flex">
-            <a href={site.resumePath} download>
-              <Download />
-              Resume
-            </a>
-          </Button>
+        <Button asChild size="sm" className="btn-3d bg-3d ml-1 rounded-full border-0">
+          <a href={site.resumePath} download>
+            <Download className="size-4" />
+            Resume
+          </a>
+        </Button>
+      </header>
 
-          <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="md:hidden">
-                <Menu />
-                <span className="sr-only">Open menu</span>
+      {/* Mobile header */}
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 flex h-16 items-center justify-between px-4 transition-all duration-300 md:hidden",
+          scrolled && "glass-panel",
+        )}
+      >
+        <a href="#top" className="flex items-center gap-2 font-display font-bold">
+          <span className="bg-3d flex size-8 items-center justify-center rounded-xl text-xs font-extrabold">
+            FK
+          </span>
+          {site.brand}
+        </a>
+
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger asChild>
+            <Button variant="outline" size="icon" className="rounded-full">
+              <Menu />
+              <span className="sr-only">Open menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right">
+            <SheetHeader>
+              <SheetTitle>{site.brand}</SheetTitle>
+            </SheetHeader>
+            <nav className="flex flex-col gap-1 px-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="hover:bg-accent rounded-md px-3 py-2 text-sm font-medium"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <Button asChild className="bg-3d mt-4 border-0">
+                <a href={site.resumePath} download onClick={() => setOpen(false)}>
+                  <Download />
+                  Download Resume
+                </a>
               </Button>
-            </SheetTrigger>
-            <SheetContent side="right">
-              <SheetHeader>
-                <SheetTitle>{site.brand}</SheetTitle>
-              </SheetHeader>
-              <nav className="flex flex-col gap-1 px-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="hover:bg-accent rounded-md px-3 py-2 text-sm font-medium"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-                <Button asChild className="mt-4">
-                  <a href={site.resumePath} download onClick={() => setOpen(false)}>
-                    <Download />
-                    Download Resume
-                  </a>
-                </Button>
-              </nav>
-            </SheetContent>
-          </Sheet>
-        </div>
-      </div>
-    </header>
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </header>
+    </>
   );
 }

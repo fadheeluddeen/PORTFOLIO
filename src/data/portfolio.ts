@@ -3,6 +3,7 @@ export const site = {
   shortName: "Fadheel",
   brand: "Fadheel.dev",
   title: "AI / ML Engineer",
+  roles: ["AI Engineer", "Machine Learning Engineer", "Data Scientist", "Generative AI / NLP Engineer"],
   location: "Chennai, Tamil Nadu",
   email: "trichyfadheel@gmail.com",
   phone: "+91 86674 24522",
@@ -17,82 +18,49 @@ export const navLinks = [
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
-  { href: "#blog", label: "Blog" },
-  { href: "#testimonials", label: "Voices" },
+  { href: "#certifications", label: "Certifications" },
   { href: "#contact", label: "Contact" },
 ] as const;
 
 export const hero = {
-  kicker: "Portfolio · Chapter 01",
-  headline: "Hi, I'm Fadheel.",
-  highlight: "I build AI that actually ships.",
+  kicker: "AI / ML Engineer · Chennai",
+  headline: "Build your systems with",
+  highlight: "AI-Guided Precision.",
   tagline:
-    "Crafting AI-driven applications, vision pipelines and full-stack systems — one panel at a time.",
-  caption: {
-    title: "currently shipping",
-    subtitle: "OCR + LLM pipelines",
-  },
-  badge: "Now hiring (me!)",
-  floatBadge: {
-    primary: "B.E. CSE · 2026",
-    secondary: "AI / ML Engineer",
-  },
+    "Computer Science graduate building AI-driven applications, computer-vision/OCR pipelines and full-stack systems — from GPU pipelines to production dashboards.",
   stats: [
     { value: "2", label: "Internships" },
-    { value: "6+", label: "Projects shipped" },
+    { value: "7", label: "Projects shipped" },
     { value: "7.05", label: "CGPA" },
-    { value: "AI / ML", label: "Specializing in" },
+    { value: "2026", label: "B.E. CSE grad" },
   ],
 } as const;
 
 export const about = {
-  kicker: "Chapter · About",
-  title: "A small, loud intro — 一人称.",
-  subtitle: "Quick character sheet. Stats, story arc, and the things I lose sleep over.",
+  kicker: "About",
+  title: "A little about my work.",
+  subtitle: "Computer Science graduate targeting AI/ML engineering roles.",
   paragraphs: [
-    "Computer Science graduate (B.E., 2026) targeting AI/ML engineering roles. I build AI-driven applications, computer-vision/OCR pipelines, and full-stack systems. Comfortable across Python, machine learning, LLMs, generative AI and prompt engineering, with hands-on internship experience in automation and full-stack development.",
-    "I like the unglamorous parts of AI — labeling data at 2am, debugging CUDA errors, writing pipelines that won't break when a colleague pushes a sloppy commit. I think great engineering looks suspiciously like good storytelling: clear panels, consistent characters, no plot holes.",
+    "Computer Science graduate (B.E., 2026) targeting AI/ML engineering roles, with hands-on experience building AI-driven applications, computer-vision/OCR pipelines, and full-stack systems. Skilled in Python and machine learning with practical exposure to LLMs, generative AI, prompt engineering, and deep learning, backed by full-stack and automation experience across two internships.",
+    "Focused on building reliable, end-to-end intelligent systems — from GPU-accelerated OCR pipelines to internal web applications used by real teams.",
   ],
   cards: [
-    { icon: "🔥", label: "What I love", value: "LLMs · Vision · Agents" },
-    { icon: "⌨", label: "Stack today", value: "Python · React · Mongo" },
-    { icon: "☕", label: "Fuel", value: "Filter coffee, mostly" },
-    { icon: "🏆", label: "Recent win", value: "Led 300+ at symposium" },
-  ],
-  achievements: [
-    "Team Lead — National-Level Technical Symposium (300+ participants).",
-    "AI & ML Hackathon participant.",
+    { icon: "🧠", label: "Focus areas", value: "LLMs · Vision · OCR" },
+    { icon: "⌨️", label: "Stack today", value: "Python · React · Firebase" },
+    { icon: "🎓", label: "Education", value: "B.E. CSE, 2026 · CGPA 7.05" },
+    { icon: "🏆", label: "Leadership", value: "Led 300+ at symposium" },
   ],
 } as const;
 
-export const marqueeSkills = [
-  "Python",
-  "Machine Learning",
-  "PyTorch",
-  "LLMs",
-  "React.js",
-  "Computer Vision",
-  "Node.js",
-  "EasyOCR",
-  "SQL",
-  "Hugging Face",
-  "Docker",
-  "TensorFlow",
-  "Firebase",
-  "Prompt Engineering",
-  "Git",
-  "MongoDB",
-  "n8n",
-  "Power BI",
-] as const;
-
 export const skillGroups = [
   {
-    title: "Languages",
+    title: "Programming",
+    icon: "code",
     tags: ["Python", "SQL", "JavaScript", "C", "C++"],
   },
   {
     title: "AI / ML",
+    icon: "psychology",
     tags: [
       "Machine Learning",
       "Deep Learning",
@@ -106,41 +74,35 @@ export const skillGroups = [
   },
   {
     title: "ML Libraries & Tools",
-    tags: [
-      "PyTorch",
-      "TensorFlow",
-      "scikit-learn",
-      "NumPy",
-      "Pandas",
-      "Matplotlib",
-      "OpenCV",
-      "EasyOCR",
-      "Hugging Face",
-    ],
+    icon: "auto_awesome",
+    tags: ["PyTorch", "TensorFlow", "scikit-learn", "NumPy", "Pandas", "Matplotlib", "OpenCV", "EasyOCR", "Hugging Face"],
   },
   {
     title: "Data & Visualization",
+    icon: "insights",
     tags: ["Power BI", "Excel", "SQL", "Data Analysis", "Dashboards"],
   },
   {
     title: "Web & Backend",
+    icon: "dns",
     tags: ["React.js", "Node.js", "Express.js", "REST APIs", "HTML5", "CSS3"],
   },
   {
     title: "Databases",
+    icon: "database",
     tags: ["MySQL", "PostgreSQL", "MongoDB", "Firebase"],
   },
   {
     title: "DevOps & Tools",
+    icon: "terminal",
     tags: ["Git", "GitHub", "Docker", "Linux", "n8n", "CI/CD", "VS Code"],
   },
 ] as const;
 
 export const experience = {
-  kicker: "Chapter · Arc",
-  title: "Story so far — the arcs.",
-  subtitle:
-    "Two internships, a handful of student projects, and one obsession that won't quit: making AI useful.",
+  kicker: "Experience",
+  title: "Where I've worked.",
+  subtitle: "Two internships focused on AI pipelines, automation, and full-stack delivery.",
   jobs: [
     {
       role: "Engineer Intern",
@@ -148,11 +110,11 @@ export const experience = {
       location: "Chennai",
       period: "May 2026 — Present",
       bullets: [
-        "Developing an OCR / computer-vision pipeline for the SensorSync O&M platform with PyTorch, CUDA, EasyOCR and Qwen2.5-VL.",
-        "Administering the dcist-user-ui GitHub repository — Git Flow strategy and contributor management.",
-        "Contributing to internal web application development using React, TypeScript and Firebase.",
+        "Developing an OCR / computer-vision pipeline for the SensorSync O&M platform — set up PyTorch with CUDA and evaluated OCR models (EasyOCR, Qwen2.5-VL) to automate reading extraction from instrument displays.",
+        "Administered the dcist-user-ui GitHub repository — configured a Git Flow branching model and managed contributor access.",
+        "Contributing to internal web-application development with React, TypeScript, and Firebase, including debugging, testing, and feature delivery alongside the team.",
       ],
-      tags: ["PyTorch", "EasyOCR", "Qwen2.5-VL", "React", "Firebase"],
+      tags: ["PyTorch", "CUDA", "EasyOCR", "Qwen2.5-VL", "React", "Firebase"],
     },
     {
       role: "Software & Automation Intern",
@@ -160,9 +122,8 @@ export const experience = {
       location: "Chennai",
       period: "2 Months",
       bullets: [
-        "Built workflow automations using n8n to reduce manual operational tasks.",
-        "Developed a full-stack application using React and Node.js.",
-        "Performed scripting, debugging and testing on production workflows with Python.",
+        "Built workflow automations using n8n, reducing manual operational tasks; developed a full-stack app with React and Node.js.",
+        "Used Python for scripting and backend logic; performed debugging, testing, and iterative improvement on real production workflows.",
       ],
       tags: ["n8n", "Python", "React", "Node.js"],
     },
@@ -170,143 +131,115 @@ export const experience = {
   education: [
     {
       school: "K. Ramakrishnan College of Technology",
-      detail: "B.E. Computer Science — 2026\nCGPA: 7.05 · Tiruchirappalli",
+      detail: "B.E., Computer Science — 2026 · CGPA: 7.05 · Tiruchirappalli",
     },
     {
       school: "Samadh Higher Secondary School",
-      detail:
-        "HSC — Mathematics & Science · Trichy\nFoundation in Math, Physics and Computer Science.",
+      detail: "HSC (Mathematics & Science) · Trichy",
     },
-  ],
-  certifications: [
-    "Mathematics for ML and Data Science",
-    "Supervised Machine Learning",
-    "Deep Learning & Neural Networks",
-    "Introduction to MongoDB",
-    "Google Cloud — in progress",
   ],
 } as const;
 
 export const projects = {
-  kicker: "Chapter · Works",
-  title: "Selected projects — six panels.",
-  subtitle: "Things I built end-to-end, mostly at midnight, often for fun.",
-  githubLabel: "All on GitHub ↗",
+  kicker: "Projects",
+  title: "Selected work.",
+  subtitle: "Things I've built end-to-end — from GPU pipelines to production dashboards.",
+  githubLabel: "All projects on GitHub ↗",
   items: [
     {
-      panel: "#01 — Panel",
-      title: "AI-Driven Interactive Interview System",
+      title: "InstrumentSync",
+      subtitle: "Field-Instrument Data Automation Platform",
       description:
-        "Resume-aware interview simulator that asks contextual questions and gives constructive feedback.",
+        "End-to-end system that captures readings from field test instruments for data-centre capacity assessments — pulls data electronically from memory-based instruments, reads display-only meters via GPU-accelerated OCR, and publishes to a live dashboard with Excel/Word report export, eliminating manual data entry.",
+      image: `${import.meta.env.BASE_URL}ocr pipelines.jpg`,
+      tags: ["Python", "PyTorch", "CUDA", "EasyOCR", "Qwen2.5-VL", "Flask"],
+      status: "Completed",
+    },
+    {
+      title: "Personal Portfolio Website",
+      subtitle: "Animated, CI/CD-deployed portfolio",
+      description:
+        "Animated, responsive portfolio deployed on GitHub Pages via a CI/CD pipeline (GitHub Actions), with scroll-driven animations and interactive project showcases.",
+      image: `${import.meta.env.BASE_URL}profile.jpeg`,
+      tags: ["Vite 7", "React 19", "TypeScript", "Tailwind v4", "shadcn/ui", "GSAP"],
+      status: "Live",
+    },
+    {
+      title: "AI-Driven Interactive Interview System",
+      subtitle: "Resume-aware mock interviewer",
+      description:
+        "Simulates interviews from uploaded resumes; generates technical questions and assesses answers with improvement-oriented feedback.",
       image: `${import.meta.env.BASE_URL}project-01-interview.jpg`,
       tags: ["Python", "LLMs", "NLP", "Prompt Engineering"],
+      status: "Completed",
     },
     {
-      panel: "#02 — Panel",
       title: "Symptom-Based Medical Diagnosis Tool",
+      subtitle: "Preliminary diagnosis assistant",
       description:
-        "Lightweight rule + ML system that predicts likely medical conditions from symptom inputs.",
+        "Predicts possible conditions from user-reported symptoms using decision-tree and rule-based logic for quick preliminary analysis.",
       image: `${import.meta.env.BASE_URL}project-02-medical.jpg`,
-      tags: ["Python", "scikit-learn", "Decision Trees"],
+      tags: ["Python", "scikit-learn", "Machine Learning"],
+      status: "Completed",
     },
     {
-      panel: "#03 — Panel",
       title: "AI-Based UI Generator",
+      subtitle: "Prompt-to-layout tool",
       description:
-        "Generates clean React UI layouts from natural-language prompts — design at the speed of thought.",
+        "Generates UI layouts from textual requirements, translating functional descriptions into React UI components to speed up frontend work.",
       image: `${import.meta.env.BASE_URL}project-03-ui-generator.png`,
       tags: ["JavaScript", "React", "AI Automation"],
+      status: "Completed",
     },
     {
-      panel: "#04 — Panel",
       title: "TSPL IT Ticketing Portal",
+      subtitle: "Enterprise IT ticketing system",
       description:
-        "Role-based IT ticketing system with a help-center module, built for an enterprise workflow.",
+        "Internal IT ticketing system with department configuration, role-based access, SLA management, and a Help Center module.",
       image: `${import.meta.env.BASE_URL}project-04-ticketing.jpg`,
       tags: ["React 19", "TypeScript", "Vite", "Firebase"],
+      status: "Completed",
     },
     {
-      panel: "#05 — Panel",
       title: "Claude Counter Desktop",
+      subtitle: "Open-source Electron app",
       description:
-        "Open-source Electron app wrapping claude.ai with live usage tracking and quota awareness.",
+        "Electron desktop app wrapping claude.ai with injected usage-counter scripts; resolved a Node v24 install issue and shipped a Windows installer on GitHub (MIT).",
       image: `${import.meta.env.BASE_URL}project-05-claude.jpeg`,
       tags: ["Electron", "Node.js", "JavaScript", "pnpm"],
+      status: "Open Source",
     },
     {
-      panel: "#06 — Panel",
       title: "Microcontroller Display System",
+      subtitle: "I2C embedded hardware",
       description:
-        "I2C-based hardware display assembly with embedded firmware — bare-metal precision.",
+        "I2C-based hardware display assembly with embedded firmware, handled circuit assembly, soldering, and hardware/software debugging for reliable output.",
       image: `${import.meta.env.BASE_URL}project-06-microcontroller.jpg`,
       tags: ["C", "C++", "Embedded", "I2C"],
+      status: "Completed",
     },
   ],
 } as const;
 
-export const testimonials = {
-  kicker: "Chapter · Voices",
-  title: "Kind words from the supporting cast.",
-  subtitle: "Mentors, leads and teammates I've worked with.",
+export const certifications = {
+  kicker: "Certifications & Learning",
+  title: "Always learning something.",
+  subtitle: "Coursework, workshops, and certifications in progress.",
   items: [
-    {
-      quote:
-        "Fadheel ships fast and asks the right questions. His OCR pipeline cut our manual review time in half — and he documented every panel of the work.",
-      name: "Engineering Lead",
-      role: "Technavious",
-      initial: "E",
-    },
-    {
-      quote:
-        "Rare combination of curiosity and discipline. He picks up new ML tooling overnight and still writes clean, reviewable code.",
-      name: "Senior Mentor",
-      role: "AI/ML Bootcamp",
-      initial: "S",
-    },
-    {
-      quote:
-        "From n8n workflows to full-stack features — he was the intern we counted on when timelines were tight.",
-      name: "Team Lead",
-      role: "SolidPro",
-      initial: "T",
-    },
+    { title: "Mathematics for Machine Learning and Data Science", org: "Coursera", icon: "functions" },
+    { title: "Supervised Machine Learning: Regression and Classification", org: "Coursera", icon: "model_training" },
+    { title: "Deep Learning & Neural Networks", org: "Coursera", icon: "hub" },
+    { title: "Introduction to MongoDB", org: "MongoDB University", icon: "database" },
   ],
-} as const;
-
-export const blog = {
-  kicker: "Chapter · Notes",
-  title: "Field notes — from the dojo.",
-  subtitle: "Short essays about AI, engineering and the messy in-between.",
-  posts: [
-    {
-      category: "Computer Vision",
-      title: "Building OCR Pipelines That Actually Survive Production",
-      excerpt:
-        "Notes from shipping an EasyOCR + Qwen2.5-VL pipeline — what works, what breaks, and what no tutorial tells you.",
-      readTime: "6 min read",
-      image: `${import.meta.env.BASE_URL}blog-01-ocr.jpg`,
-    },
-    {
-      category: "LLMs",
-      title: "Prompt Engineering Is Software Engineering",
-      excerpt:
-        "A pragmatic framework for designing prompts the same way you design APIs — versioned, tested, observable.",
-      readTime: "8 min read",
-      image: `${import.meta.env.BASE_URL}blog-02-prompt.jpg`,
-    },
-    {
-      category: "Machine Learning",
-      title: "From scikit-learn to PyTorch: A Beginner's Bridge",
-      excerpt:
-        "If classical ML is your home base, here's the smallest possible path to feeling at home in deep learning.",
-      readTime: "5 min read",
-      image: `${import.meta.env.BASE_URL}blog-03-pytorch.jpg`,
-    },
+  inProgress: ["Claude AI (Anthropic) certification course", "Microsoft Azure Cloud AI", "Google Cloud"],
+  achievements: [
+    "Team Lead — National-Level Technical Symposium, led a 300+ participant event (speakers, logistics, coordination).",
+    "AI & ML Hackathon participant.",
   ],
 } as const;
 
 export const contact = {
-  kicker: "Chapter · Final Panel",
-  title: "Let's build — something.",
-  subtitle: "No forms, no funnels. Pick the channel that works for you, tap to copy, and say hi.",
+  kicker: "Contact",
+  title: "Let's build something.",
+  subtitle: "Open to AI/ML engineering roles. Reach out on any of these channels.",
 } as const;

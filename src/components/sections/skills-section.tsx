@@ -1,89 +1,61 @@
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import type { ComponentType } from "react";
+import {
+  Code2,
+  Brain,
+  Sparkles,
+  BarChart3,
+  Server,
+  Database,
+  Terminal,
+} from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { SectionHeader, SectionShell } from "@/components/layout/section-shell";
-import { VelocityMarquee } from "@/components/velocity-marquee";
-import { marqueeSkills, skillGroups } from "@/data/portfolio";
+import { skillGroups } from "@/data/portfolio";
 
-gsap.registerPlugin(ScrollTrigger);
+const ICONS: Record<string, ComponentType<{ className?: string }>> = {
+  code: Code2,
+  psychology: Brain,
+  auto_awesome: Sparkles,
+  insights: BarChart3,
+  dns: Server,
+  database: Database,
+  terminal: Terminal,
+};
 
 export function SkillsSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
-  const firstRow = marqueeSkills.slice(0, Math.ceil(marqueeSkills.length / 2));
-  const secondRow = marqueeSkills.slice(Math.ceil(marqueeSkills.length / 2));
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      if (headerRef.current) {
-        gsap.fromTo(
-          headerRef.current.children,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1, y: 0, duration: 0.7, stagger: 0.1, ease: "power3.out",
-            scrollTrigger: { trigger: headerRef.current, start: "top 85%", toggleActions: "play none none reverse" },
-          }
-        );
-      }
-      if (cardsRef.current) {
-        gsap.fromTo(
-          cardsRef.current.children,
-          { opacity: 0, y: 50, scale: 0.95 },
-          {
-            opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.1, ease: "power3.out",
-            scrollTrigger: { trigger: cardsRef.current, start: "top 85%", toggleActions: "play none none reverse" },
-          }
-        );
-      }
-    }, section);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <SectionShell id="skills" className="py-0 md:py-0">
-      <div ref={sectionRef} className="py-20 md:py-24">
-        <div ref={headerRef}>
-          <SectionHeader
-            kicker="Chapter · Skills"
-            title="The toolbox, laid bare."
-            subtitle="Languages, ML frameworks, web stack, data tooling — what I reach for on a Tuesday morning."
-          />
+    <section id="skills" className="section-anchor relative py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="mb-14 text-center">
+          <span className="text-primary text-sm font-bold tracking-wide uppercase">Skills</span>
+          <h2 className="font-display mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">
+            What I work with.
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {skillGroups.map((group) => {
+            const Icon = ICONS[group.icon] ?? Code2;
+            return (
+              <div
+                key={group.title}
+                className="tilt-card glass-panel rounded-3xl p-6"
+              >
+                <div className="bg-3d mb-4 flex size-12 items-center justify-center rounded-2xl">
+                  <Icon className="size-6" />
+                </div>
+                <h3 className="font-display mb-4 text-lg font-bold">{group.title}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {group.tags.map((tag) => (
+                    <span key={tag} className="skill-chip">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
-      <div className="border-border/60 space-y-3 overflow-hidden border-y py-4">
-        <VelocityMarquee baseVelocity={45}>
-          {firstRow.map((skill) => (
-            <Badge key={skill} variant="outline" className="mr-3 rounded-full px-4 py-1.5 text-sm">
-              {skill}
-            </Badge>
-          ))}
-        </VelocityMarquee>
-        <VelocityMarquee baseVelocity={-45}>
-          {secondRow.map((skill) => (
-            <Badge key={skill} variant="secondary" className="mr-3 rounded-full px-4 py-1.5 text-sm">
-              {skill}
-            </Badge>
-          ))}
-        </VelocityMarquee>
-      </div>
-      <div ref={cardsRef} className="grid gap-5 py-20 md:grid-cols-2 xl:grid-cols-3">
-        {skillGroups.map((group) => (
-          <Card key={group.title} className="shadow-none">
-            <CardHeader><CardTitle>{group.title}</CardTitle></CardHeader>
-            <CardContent className="flex flex-wrap gap-2">
-              {group.tags.map((tag) => <Badge key={tag} variant="secondary">{tag}</Badge>)}
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </SectionShell>
+    </section>
   );
 }
