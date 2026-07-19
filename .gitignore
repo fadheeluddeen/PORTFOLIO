@@ -17,3 +17,8 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# Claude Code skills (kept local, not part of the site)
+.agents/
+SKILL.md
+skills-lock.json
