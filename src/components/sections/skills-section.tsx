@@ -1,13 +1,5 @@
 import type { ComponentType } from "react";
-import {
-  Code2,
-  Brain,
-  Sparkles,
-  BarChart3,
-  Server,
-  Database,
-  Terminal,
-} from "lucide-react";
+import { Code2, Brain, Sparkles, BarChart3, Server, Database, Terminal } from "lucide-react";
 
 import { skillGroups } from "@/data/portfolio";
 
@@ -25,9 +17,9 @@ export function SkillsSection() {
   return (
     <section id="skills" className="section-anchor relative py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-14 text-center">
-          <span className="text-primary text-sm font-bold tracking-wide uppercase">Skills</span>
-          <h2 className="font-display mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">
+        <div className="mb-14 flex flex-col items-center text-center">
+          <span className="skeuo-chip text-primary">Skills</span>
+          <h2 className="font-display emboss mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
             What I work with.
           </h2>
         </div>
@@ -36,17 +28,16 @@ export function SkillsSection() {
           {skillGroups.map((group) => {
             const Icon = ICONS[group.icon] ?? Code2;
             return (
-              <div
-                key={group.title}
-                className="tilt-card glass-panel rounded-3xl p-6"
-              >
-                <div className="bg-3d mb-4 flex size-12 items-center justify-center rounded-2xl">
-                  <Icon className="size-6" />
+              <div key={group.title} className="skeuo-card rounded-3xl p-6">
+                <div className="mb-5 flex items-center gap-3">
+                  <span className="skeuo-medallion grid size-12 place-items-center rounded-2xl">
+                    <Icon className="size-6" />
+                  </span>
+                  <h3 className="font-display text-lg font-bold">{group.title}</h3>
                 </div>
-                <h3 className="font-display mb-4 text-lg font-bold">{group.title}</h3>
-                <div className="flex flex-wrap gap-2">
+                <div className="skeuo-inset flex flex-wrap gap-2 rounded-2xl p-3">
                   {group.tags.map((tag) => (
-                    <span key={tag} className="skill-chip">
+                    <span key={tag} className="skeuo-chip !py-1.5 !text-xs">
                       {tag}
                     </span>
                   ))}

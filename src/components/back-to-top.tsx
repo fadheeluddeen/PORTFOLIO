@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function BackToTop() {
@@ -15,18 +14,16 @@ export function BackToTop() {
   }, []);
 
   return (
-    <Button
-      size="icon"
+    <button
+      type="button"
       aria-label="Back to top"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       className={cn(
-        "btn-3d bg-3d fixed right-5 bottom-5 z-50 rounded-full border-0 transition-all duration-300",
-        visible
-          ? "translate-y-0 opacity-100"
-          : "pointer-events-none translate-y-4 opacity-0",
+        "skeuo-btn fixed right-5 bottom-5 z-50 grid size-12 place-items-center rounded-full transition-all duration-300",
+        visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0",
       )}
     >
-      <ArrowUp />
-    </Button>
+      <ArrowUp className="size-5" />
+    </button>
   );
 }

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Copy, Check, Mail, Phone, Linkedin, Github, ArrowUpRight } from "lucide-react";
 import { toast } from "sonner";
 
-import { Button } from "@/components/ui/button";
 import { contact, site } from "@/data/portfolio";
 
 const channels = [
@@ -35,31 +34,30 @@ export function ContactSection() {
   return (
     <section id="contact" className="section-anchor relative py-24 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="mb-12 text-center">
-          <span className="text-primary text-sm font-bold tracking-wide uppercase">
-            {contact.kicker}
-          </span>
-          <h2 className="font-display mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">
+        <div className="mb-12 flex flex-col items-center text-center">
+          <span className="skeuo-chip text-primary">{contact.kicker}</span>
+          <h2 className="font-display emboss mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
             {contact.title}
           </h2>
           <p className="text-muted-foreground mt-3">{contact.subtitle}</p>
         </div>
 
-        <div className="bg-3d radius-morph relative mb-10 overflow-hidden p-8 md:p-12">
-          <div className="relative z-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+        <div className="skeuo-btn radius-morph relative mb-10 overflow-hidden p-8 md:p-12">
+          <div className="relative flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
             <div className="space-y-2">
               <h3 className="font-display text-2xl font-extrabold tracking-tight md:text-3xl">
                 Have an idea that needs shipping?
               </h3>
-              <p className="max-w-md opacity-90">
+              <p className="max-w-md opacity-95">
                 I'm currently open to AI/ML engineering roles — reply fast, prototype faster.
               </p>
             </div>
-            <Button asChild size="lg" variant="secondary" className="btn-3d rounded-full px-8">
-              <a href={`mailto:${site.email}`}>
-                Say hello <ArrowUpRight />
-              </a>
-            </Button>
+            <a
+              href={`mailto:${site.email}`}
+              className="skeuo-btn-ghost flex shrink-0 items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold"
+            >
+              Say hello <ArrowUpRight className="size-4" />
+            </a>
           </div>
         </div>
 
@@ -67,7 +65,7 @@ export function ContactSection() {
           {channels.map((channel) => (
             <div
               key={channel.label}
-              className="tilt-card glass-panel flex items-center justify-between rounded-2xl p-4"
+              className="skeuo-card flex items-center justify-between rounded-2xl p-4"
             >
               <a
                 href={channel.href}
@@ -75,21 +73,21 @@ export function ContactSection() {
                 rel={channel.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="flex min-w-0 items-center gap-3"
               >
-                <div className="bg-accent flex size-10 shrink-0 items-center justify-center rounded-xl">
-                  <channel.icon className="text-accent-foreground size-5" />
+                <div className="skeuo-medallion grid size-10 shrink-0 place-items-center rounded-xl">
+                  <channel.icon className="size-5" />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-muted-foreground text-xs font-bold tracking-wide uppercase">
+                  <p className="text-muted-foreground text-[0.7rem] font-bold tracking-wide uppercase">
                     {channel.label}
                   </p>
                   <p className="truncate text-sm font-bold">{channel.value}</p>
                 </div>
               </a>
               {channel.copy && (
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="size-8 shrink-0"
+                <button
+                  type="button"
+                  aria-label={`Copy ${channel.label}`}
+                  className="skeuo-btn-ghost grid size-8 shrink-0 place-items-center rounded-lg"
                   onClick={() => handleCopy(channel.value, channel.label)}
                 >
                   {copied === channel.label ? (
@@ -97,7 +95,7 @@ export function ContactSection() {
                   ) : (
                     <Copy className="size-4" />
                   )}
-                </Button>
+                </button>
               )}
             </div>
           ))}
