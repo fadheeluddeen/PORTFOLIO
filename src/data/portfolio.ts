@@ -87,8 +87,17 @@ export const projects = {
 export const certifications = {
   kicker: "Certifications & Learning",
   title: "Always learning something.",
-  subtitle: "Coursework, workshops, and certifications in progress.",
-  items: certificationItems,
+  subtitle: "Workshops, competitions, and coursework — with the credentials to back them up.",
+  items: certificationItems.map((c) => ({
+    title: c.title,
+    org: c.org,
+    year: "year" in c ? c.year : "",
+    featured: "featured" in c ? c.featured : false,
+    image:
+      "image" in c && c.image
+        ? `${import.meta.env.BASE_URL}${encodeURIComponent(c.image)}`
+        : "",
+  })),
   inProgress: certificationsInProgress,
   achievements,
 } as const;

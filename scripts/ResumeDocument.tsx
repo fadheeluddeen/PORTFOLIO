@@ -192,15 +192,22 @@ export function ResumeDocument() {
           </View>
         ))}
 
-        <Text style={styles.sectionTitle}>Certifications &amp; Learning</Text>
+        <Text style={styles.sectionTitle}>Certifications &amp; Achievements</Text>
         <Text style={styles.bulletText}>
-          {certificationItems.map((c) => c.title).join(" · ")}.
+          {certificationItems
+            .filter((c) => !c.title.includes("Internship"))
+            .map((c) => c.title)
+            .join(" · ")}
+          .
         </Text>
         <Text style={[styles.bulletText, { marginTop: 3 }]}>
           <Text style={{ fontFamily: "Helvetica-Bold" }}>Currently pursuing: </Text>
           {certificationsInProgress.join(" · ")}.
         </Text>
-        <Text style={[styles.bulletText, { marginTop: 3 }]}>{achievements.join(" ")}</Text>
+        <Text style={[styles.bulletText, { marginTop: 3 }]}>
+          <Text style={{ fontFamily: "Helvetica-Bold" }}>Achievements: </Text>
+          {achievements.join(" ")}
+        </Text>
 
         <Text style={styles.sectionTitle}>Education</Text>
         {education.map((edu) => (

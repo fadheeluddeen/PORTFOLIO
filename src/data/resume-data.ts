@@ -83,12 +83,13 @@ export const jobs = [
   },
   {
     role: "Software & Automation Intern",
-    company: "SolidPro",
+    company: "SolidPro Engineering Support",
     location: "Chennai",
-    period: "2 Months",
+    period: "Sep 2025 — Nov 2025",
     bullets: [
-      "Built workflow automations using n8n, reducing manual operational tasks; developed a full-stack app with React and Node.js.",
+      "Skill-oriented internship in the Digital Transformation department — built workflow automations using n8n, reducing manual operational tasks; developed a full-stack app with React and Node.js.",
       "Used Python for scripting and backend logic; performed debugging, testing, and iterative improvement on real production workflows.",
+      "Completed with an overall intern evaluation score of 8/10, rated 'Superior' on learning appetite.",
     ],
     tags: ["n8n", "Python", "React", "Node.js"],
   },
@@ -182,11 +183,61 @@ export const projectList = [
   },
 ] as const;
 
+/**
+ * Certifications & credentials. Items with an `image` (a filename in /public)
+ * render as scanned-certificate cards in the website gallery; the rest show as
+ * text-only coursework. `featured: true` pins a credential to the front of the
+ * gallery. The `image`/`featured`/`year` fields are website-only — the PDF just
+ * reads `title` + `org`.
+ */
 export const certificationItems = [
+  {
+    title: "AI & ML Hackathon — 1st Place Winner",
+    org: "Techgyan · IIT Madras",
+    year: "2025",
+    image: "cert-hackathon-winner.jpg",
+    featured: true,
+  },
+  {
+    title: "National Conference — Paper Presentation",
+    org: "Nandha College of Technology",
+    year: "2026",
+    image: "cert-conference.jpg",
+    featured: true,
+  },
+  {
+    title: "Artificial Intelligence & Machine Learning Workshop",
+    org: "Techgyan · IIT Madras",
+    year: "2025",
+    image: "cert-aiml-workshop.jpg",
+  },
+  {
+    title: "Artificial Intelligence Workshop",
+    org: "Techgyan · IIT Madras",
+    year: "2025",
+    image: "cert-ai-workshop.jpg",
+  },
+  {
+    title: "AI & ML Hackathon — Participant",
+    org: "Techgyan · IIT Madras",
+    year: "2025",
+    image: "cert-hackathon.jpg",
+  },
+  {
+    title: "Introduction to MongoDB",
+    org: "MongoDB University",
+    year: "2024",
+    image: "cert-mongodb.png",
+  },
+  {
+    title: "Software & Automation Internship",
+    org: "SolidPro Engineering Support",
+    year: "2025",
+    image: "cert-solidpro.png",
+  },
   { title: "Mathematics for Machine Learning and Data Science", org: "Coursera" },
   { title: "Supervised Machine Learning: Regression and Classification", org: "Coursera" },
   { title: "Deep Learning & Neural Networks", org: "Coursera" },
-  { title: "Introduction to MongoDB", org: "MongoDB University" },
 ] as const;
 
 export const certificationsInProgress = [
@@ -196,6 +247,8 @@ export const certificationsInProgress = [
 ] as const;
 
 export const achievements = [
+  "1st Place — AI & ML Hackathon, Techgyan @ IIT Madras (Apr 2025).",
+  'Presented the paper "Computer Vision-Based Intelligent Crowd Anomaly Detection System" at the 9th National-Level Conference on Modern Trends in Engineering & Technological Sciences, Nandha College of Technology (Mar 2026).',
   "Team Lead — National-Level Technical Symposium, led a 300+ participant event (speakers, logistics, coordination).",
-  "AI & ML Hackathon participant.",
+  "Completed AI & ML workshops at IIT Madras (Techgyan, Apr 2025).",
 ] as const;
