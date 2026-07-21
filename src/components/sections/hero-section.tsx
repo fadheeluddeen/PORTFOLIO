@@ -9,20 +9,6 @@ export function HeroSection() {
       id="top"
       className="section-anchor hero-gradient relative flex min-h-screen items-center overflow-hidden pt-28 pb-16"
     >
-      {/* floating tactile shapes */}
-      <div
-        aria-hidden
-        className="skeuo animate-float-slow absolute top-24 left-[7%] size-24 rounded-[2rem] md:size-32"
-      />
-      <div
-        aria-hidden
-        className="skeuo animate-float-medium absolute right-[9%] bottom-32 size-20 rounded-full md:size-28"
-      />
-      <div
-        aria-hidden
-        className="skeuo-inset animate-float-slow absolute top-1/2 right-[19%] size-14 rounded-2xl md:size-20"
-      />
-
       <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 text-center">
         <span className="skeuo-chip text-primary mb-7">
           <Sparkles className="size-4" />
