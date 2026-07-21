@@ -22,10 +22,9 @@
       // Set theme class before paint to avoid a flash of the wrong theme
       (function () {
         try {
+          // Default to light; only go dark if the visitor explicitly chose it.
           var stored = localStorage.getItem("theme");
-          var dark = stored
-            ? stored === "dark"
-            : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var dark = stored === "dark";
           document.documentElement.classList.add(dark ? "dark" : "light");
         } catch (e) {
           document.documentElement.classList.add("light");

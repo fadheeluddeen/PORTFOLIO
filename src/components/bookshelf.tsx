@@ -1,4 +1,5 @@
-import { Crown, Trophy, ExternalLink } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Crown, Trophy, Maximize2, X } from "lucide-react";
 
 /**
  * The Bookshelf — a walnut bookcase that tells the story of what I've
@@ -7,7 +8,7 @@ import { Crown, Trophy, ExternalLink } from "lucide-react";
  * holds the credentials still in progress (marked with a bookmark).
  *
  * Books that have a scanned certificate (`image`) are clickable — they
- * pull off the shelf and open the certificate in a new tab.
+ * pull off the shelf and open the certificate in an in-page lightbox.
  */
 
 type Cert = {
@@ -35,10 +36,12 @@ function Book({
   cert,
   index,
   bookmark = false,
+  onOpen,
 }: {
   cert: Cert;
   index: number;
   bookmark?: boolean;
+  onOpen: (cert: Cert) => void;
 }) {
   const background = SPINES[index % SPINES.length];
   const height = (cert.featured ? 214 : HEIGHTS[index % HEIGHTS.length]) + "px";
@@ -64,10 +67,9 @@ function Book({
 
   if (clickable) {
     return (
-      <a
-        href={cert.image}
-        target="_blank"
-        rel="noopener noreferrer"
+      <button
+        type="button"
+        onClick={() => onOpen(cert)}
         className="book is-clickable group"
         style={{ background, height }}
         aria-label={`${cert.title} — ${cert.org}. View certificate`}
@@ -75,9 +77,9 @@ function Book({
       >
         {inner}
         <span className="pointer-events-none absolute inset-x-0 bottom-1 z-[2] flex justify-center opacity-0 transition-opacity group-hover:opacity-100">
-          <ExternalLink className="size-3 text-white/90" />
+          <Maximize2 className="size-3 text-white/90" />
         </span>
-      </a>
+      </button>
     );
   }
 
@@ -96,6 +98,62 @@ function ShelfLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
+/* In-page certificate viewer */
+function CertLightbox({ cert, onClose }: { cert: Cert; onClose: () => void }) {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-[80] flex items-center justify-center p-4 sm:p-8"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${cert.title} certificate`}
+      onClick={onClose}
+    >
+      <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" />
+      <div
+        className="skeuo relative z-10 flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl p-3"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="mb-3 flex items-start justify-between gap-4 px-1 pt-1">
+          <div className="min-w-0">
+            <h3 className="font-display truncate text-base font-bold sm:text-lg">{cert.title}</h3>
+            <p className="text-primary text-xs font-semibold tracking-wide uppercase">
+              {cert.org}
+              {cert.year ? ` · ${cert.year}` : ""}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close certificate"
+            className="skeuo-btn-ghost grid size-9 shrink-0 place-items-center rounded-full"
+          >
+            <X className="size-4" />
+          </button>
+        </div>
+        <div className="skeuo-inset flex-1 overflow-auto rounded-xl p-2">
+          <img
+            src={cert.image}
+            alt={`${cert.title} certificate`}
+            className="mx-auto max-h-[72vh] w-auto max-w-full rounded-lg object-contain"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function Bookshelf({
   items,
   inProgress,
@@ -103,6 +161,8 @@ export function Bookshelf({
   items: Cert[];
   inProgress: readonly string[];
 }) {
+  const [selected, setSelected] = useState<Cert | null>(null);
+
   return (
     <div className="bookcase">
       {/* Shelf 1 — certifications & awards */}
@@ -119,7 +179,7 @@ export function Bookshelf({
             <span className="trophy-label">1st Place</span>
           </div>
           {items.map((cert, i) => (
-            <Book key={cert.title} cert={cert} index={i} />
+            <Book key={cert.title} cert={cert} index={i} onOpen={setSelected} />
           ))}
         </div>
         <div className="shelf-plank" />
@@ -138,6 +198,7 @@ export function Bookshelf({
               cert={{ title, org: "In progress" }}
               index={i + 2}
               bookmark
+              onOpen={setSelected}
             />
           ))}
           <div className="trophy-obj" title="Always learning">
@@ -147,6 +208,8 @@ export function Bookshelf({
         </div>
         <div className="shelf-plank" />
       </div>
+
+      {selected && <CertLightbox cert={selected} onClose={() => setSelected(null)} />}
     </div>
   );
 }

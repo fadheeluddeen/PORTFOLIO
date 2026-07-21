@@ -48,9 +48,9 @@
 :root {
   --radius: 0.9rem;
 
-  --background: oklch(0.965 0.011 82);
+  --background: oklch(0.985 0.005 90);
   --foreground: oklch(0.26 0.028 264);
-  --card: oklch(0.99 0.007 85);
+  --card: oklch(0.995 0.004 90);
   --card-foreground: oklch(0.26 0.028 264);
   --popover: oklch(0.99 0.007 85);
   --popover-foreground: oklch(0.26 0.028 264);
@@ -96,7 +96,7 @@
   --elev-lo-strong: color-mix(in oklch, oklch(0.3 0.04 264) 20%, transparent);
   --elev-edge: color-mix(in oklch, var(--foreground) 9%, transparent);
   --sheen: rgba(255, 255, 255, 0.5);
-  --grain-opacity: 0.32;
+  --grain-opacity: 0.14;
 }
 
 .dark {
