@@ -1,15 +1,12 @@
-import { useEffect, Suspense, lazy } from "react";
+import { Suspense, lazy } from "react";
 import { Toaster } from "sonner";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import { BackToTop } from "@/components/back-to-top";
 import { ScrollProgress } from "@/components/scroll-progress";
-import { Header } from "@/components/layout/header";
 import { HeroSection } from "@/components/sections/hero-section";
 import { AboutSection } from "@/components/sections/about-section";
 import { SkillsSection } from "@/components/sections/skills-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
+import { FishBackground } from "@/components/FishBackground";
 
 const ProjectsSection = lazy(() =>
   import("@/components/sections/projects-section").then((m) => ({ default: m.ProjectsSection })),
@@ -22,45 +19,55 @@ const CertificationsSection = lazy(() =>
 const ContactSection = lazy(() =>
   import("@/components/sections/contact-section").then((m) => ({ default: m.ContactSection })),
 );
-const Footer = lazy(() =>
-  import("@/components/layout/footer").then((m) => ({ default: m.Footer })),
-);
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
-  useEffect(() => {
-    ScrollTrigger.refresh();
-    const handleResize = () => ScrollTrigger.refresh();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
-    <div className="bg-background min-h-screen">
+    <div className="bg-transparent min-h-screen">
+      <FishBackground />
       <ScrollProgress />
-      <Header />
-      <main className="overflow-x-clip">
+
+      <div className="w-full flex-col overflow-x-hidden relative z-10 bg-transparent">
         <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ExperienceSection />
-        <Suspense
-          fallback={
-            <div className="text-muted-foreground flex h-96 items-center justify-center">
-              Loading...
-            </div>
-          }
-        >
-          <ProjectsSection />
-          <CertificationsSection />
-          <ContactSection />
-        </Suspense>
-      </main>
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
-      <BackToTop />
+
+        <div className="w-full flex-col bg-background/50 backdrop-blur-sm sm:px-12 px-4 py-8 lg:px-24">
+          <div className="mb-24 mt-12" id="about">
+            <AboutSection />
+          </div>
+
+          <div className="mb-24" id="skills">
+            <SkillsSection />
+          </div>
+
+          <div className="mb-24" id="experience">
+            <ExperienceSection />
+          </div>
+
+          <div className="mb-24" id="projects">
+            <Suspense
+              fallback={
+                <div className="text-muted-foreground flex h-96 items-center justify-center">
+                  Loading...
+                </div>
+              }
+            >
+              <ProjectsSection />
+            </Suspense>
+          </div>
+
+          <div className="mb-24" id="certifications">
+            <Suspense fallback={null}>
+              <CertificationsSection />
+            </Suspense>
+          </div>
+
+          <div className="pb-32" id="contact">
+            <Suspense fallback={null}>
+              <ContactSection />
+            </Suspense>
+          </div>
+        </div>
+      </div>
+
       <Toaster position="bottom-center" richColors />
     </div>
   );

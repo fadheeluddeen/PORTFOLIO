@@ -6,7 +6,7 @@
 
 @theme inline {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --font-display: "DM Serif Display", ui-serif, Georgia, "Times New Roman", serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -40,111 +40,128 @@
 }
 
 /* ------------------------------------------------------------------ *
- * LIBRARY / STUDY palette — professional, timeless.
- * Deep ink-navy primary · warm paper base · walnut wood · brass gold.
- * Declared UNLAYERED so these win over HeroUI's layered defaults; the
- * same variable names drive BOTH the custom components and HeroUI's.
+ * PREMIUM EDITORIAL palette — Warm White, Deep Charcoal, Walnut, Gold.
+ * Handcrafted Awwwards-style UI variables.
  * ------------------------------------------------------------------ */
 :root {
-  --radius: 0.9rem;
+  --radius: 1.25rem;
 
-  --background: oklch(0.985 0.005 90);
-  --foreground: oklch(0.26 0.028 264);
-  --card: oklch(0.995 0.004 90);
-  --card-foreground: oklch(0.26 0.028 264);
-  --popover: oklch(0.99 0.007 85);
-  --popover-foreground: oklch(0.26 0.028 264);
+  /* Warm White and Deep Charcoal */
+  --background: oklch(0.98 0.01 75);
+  --foreground: oklch(0.25 0.01 250);
 
-  --primary: oklch(0.42 0.115 264);
-  --primary-foreground: oklch(0.98 0.01 85);
-  --secondary: oklch(0.46 0.07 210);
-  --secondary-foreground: oklch(0.98 0.01 85);
-  --tertiary: oklch(0.5 0.09 264);
-  --tertiary-foreground: oklch(0.98 0.01 85);
+  --card: oklch(0.99 0.005 75);
+  --card-foreground: oklch(0.25 0.01 250);
 
-  --muted: oklch(0.925 0.013 80);
-  --muted-foreground: oklch(0.47 0.022 264);
-  --accent: oklch(0.9 0.04 82);
-  --accent-foreground: oklch(0.36 0.06 60);
+  --popover: oklch(0.99 0.005 75);
+  --popover-foreground: oklch(0.25 0.01 250);
+
+  /* Golden Yellow and Lavender Accents */
+  --primary: oklch(0.25 0.01 250);
+  /* Charcoal primary */
+  --primary-foreground: oklch(0.98 0.01 75);
+
+  --secondary: oklch(0.85 0.15 90);
+  /* Golden Yellow */
+  --secondary-foreground: oklch(0.25 0.01 250);
+
+  --tertiary: oklch(0.80 0.10 290);
+  /* Soft Lavender */
+  --tertiary-foreground: oklch(0.25 0.01 250);
+
+  --muted: oklch(0.95 0.01 75);
+  --muted-foreground: oklch(0.50 0.01 250);
+
+  --accent: oklch(0.96 0.02 290);
+  /* Very soft lavender */
+  --accent-foreground: oklch(0.25 0.01 250);
+
   --destructive: oklch(0.55 0.2 27);
-  --border: oklch(0.87 0.014 78);
-  --input: oklch(0.89 0.014 78);
-  --ring: oklch(0.42 0.115 264);
+  --border: oklch(0.92 0.01 75);
+  --input: oklch(0.92 0.01 75);
+  --ring: oklch(0.50 0.01 250);
 
-  /* Brass / gold accent — used sparingly for highlights, awards, foil */
-  --gold: oklch(0.72 0.115 78);
-  --gold-deep: oklch(0.6 0.11 68);
-  --gold-foreground: oklch(0.28 0.05 65);
+  --gold: oklch(0.85 0.15 90);
+  --gold-deep: oklch(0.75 0.15 85);
+  --gold-foreground: oklch(0.25 0.01 250);
 
-  /* Walnut wood — the bookshelf material */
+  /* Rich Walnut Brown */
   --wood: oklch(0.44 0.055 52);
   --wood-light: oklch(0.55 0.06 56);
   --wood-dark: oklch(0.32 0.05 46);
   --wood-edge: oklch(0.26 0.04 44);
 
-  /* HeroUI surface tokens mapped to the brand palette */
   --surface: var(--card);
   --surface-foreground: var(--card-foreground);
   --surface-secondary: var(--muted);
   --surface-secondary-foreground: var(--foreground);
-  --surface-tertiary: oklch(0.9 0.015 80);
+  --surface-tertiary: oklch(0.93 0.01 75);
   --surface-tertiary-foreground: var(--foreground);
 
-  /* Soft, refined depth tokens (subtle — not heavy skeuomorphism) */
-  --elev-hi: rgba(255, 255, 255, 0.9);
-  --elev-lo: color-mix(in oklch, oklch(0.3 0.04 264) 12%, transparent);
-  --elev-lo-strong: color-mix(in oklch, oklch(0.3 0.04 264) 20%, transparent);
-  --elev-edge: color-mix(in oklch, var(--foreground) 9%, transparent);
-  --sheen: rgba(255, 255, 255, 0.5);
-  --grain-opacity: 0.14;
+  /* Deep organic shadows / elevation */
+  --elev-hi: rgba(255, 255, 255, 0.95);
+  --elev-lo: rgba(0, 0, 0, 0.05);
+  --elev-lo-strong: rgba(0, 0, 0, 0.12);
+  --elev-edge: rgba(0, 0, 0, 0.04);
+  --sheen: rgba(255, 255, 255, 0.8);
+  --grain-opacity: 0.15;
 }
 
 .dark {
-  --background: oklch(0.185 0.022 264);
-  --foreground: oklch(0.94 0.008 85);
-  --card: oklch(0.235 0.023 264);
-  --card-foreground: oklch(0.94 0.008 85);
-  --popover: oklch(0.235 0.023 264);
-  --popover-foreground: oklch(0.94 0.008 85);
+  --background: oklch(0.18 0.01 250);
+  /* Deep Charcoal */
+  --foreground: oklch(0.98 0.01 75);
+  /* Warm white */
 
-  --primary: oklch(0.7 0.12 264);
-  --primary-foreground: oklch(0.16 0.02 264);
-  --secondary: oklch(0.68 0.08 205);
-  --secondary-foreground: oklch(0.16 0.02 264);
-  --tertiary: oklch(0.66 0.11 264);
-  --tertiary-foreground: oklch(0.16 0.02 264);
+  --card: oklch(0.22 0.01 250);
+  --card-foreground: oklch(0.98 0.01 75);
 
-  --muted: oklch(0.29 0.02 264);
-  --muted-foreground: oklch(0.72 0.02 260);
-  --accent: oklch(0.3 0.03 264);
-  --accent-foreground: oklch(0.85 0.06 80);
+  --popover: oklch(0.22 0.01 250);
+  --popover-foreground: oklch(0.98 0.01 75);
+
+  --primary: oklch(0.98 0.01 75);
+  --primary-foreground: oklch(0.18 0.01 250);
+
+  --secondary: oklch(0.85 0.15 90);
+  --secondary-foreground: oklch(0.18 0.01 250);
+
+  --tertiary: oklch(0.80 0.10 290);
+  --tertiary-foreground: oklch(0.18 0.01 250);
+
+  --muted: oklch(0.26 0.01 250);
+  --muted-foreground: oklch(0.70 0.01 250);
+
+  --accent: oklch(0.25 0.04 290);
+  --accent-foreground: oklch(0.98 0.01 75);
+
   --destructive: oklch(0.68 0.19 25);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.7 0.12 264);
+  --border: oklch(0.30 0.01 250);
+  --input: oklch(0.30 0.01 250);
+  --ring: oklch(0.70 0.01 250);
 
-  --gold: oklch(0.8 0.12 82);
-  --gold-deep: oklch(0.68 0.12 74);
-  --gold-foreground: oklch(0.2 0.03 60);
+  --gold: oklch(0.80 0.15 90);
+  --gold-deep: oklch(0.70 0.15 85);
+  --gold-foreground: oklch(0.18 0.01 250);
 
-  --wood: oklch(0.4 0.05 50);
-  --wood-light: oklch(0.5 0.055 54);
-  --wood-dark: oklch(0.28 0.04 44);
-  --wood-edge: oklch(0.2 0.03 42);
+  --wood: oklch(0.35 0.05 52);
+  --wood-light: oklch(0.45 0.06 56);
+  --wood-dark: oklch(0.25 0.04 46);
+  --wood-edge: oklch(0.15 0.02 44);
 
   --surface: var(--card);
   --surface-foreground: var(--card-foreground);
-  --surface-secondary: oklch(0.3 0.02 264);
+  --surface-secondary: var(--muted);
   --surface-secondary-foreground: var(--foreground);
-  --surface-tertiary: oklch(0.34 0.022 264);
+  --surface-tertiary: oklch(0.30 0.01 250);
   --surface-tertiary-foreground: var(--foreground);
 
-  --elev-hi: rgba(255, 255, 255, 0.06);
+  /* Elevation mapping for dark mode */
+  --elev-hi: rgba(255, 255, 255, 0.05);
   --elev-lo: rgba(0, 0, 0, 0.4);
-  --elev-lo-strong: rgba(0, 0, 0, 0.55);
-  --elev-edge: rgba(0, 0, 0, 0.4);
-  --sheen: rgba(255, 255, 255, 0.07);
-  --grain-opacity: 0.22;
+  --elev-lo-strong: rgba(0, 0, 0, 0.6);
+  --elev-edge: rgba(0, 0, 0, 0.3);
+  --sheen: rgba(255, 255, 255, 0.03);
+  --grain-opacity: 0.25;
 }
 
 @layer base {
@@ -191,511 +208,559 @@
 
 @layer components {
 
-/* Raised panel — the primary surface */
-.skeuo {
-  background: var(--card);
-  border: 1px solid var(--elev-edge);
-  border-radius: var(--radius);
-  box-shadow:
-    0 1px 0 0 var(--elev-hi) inset,
-    0 1px 2px -1px var(--elev-lo),
-    0 12px 28px -18px var(--elev-lo-strong);
-}
+  /* Raised panel — the primary surface */
+  .skeuo {
+    background: var(--card);
+    border: 1px solid var(--elev-edge);
+    border-radius: var(--radius);
+    box-shadow:
+      0 1px 0 0 var(--elev-hi) inset,
+      0 1px 2px -1px var(--elev-lo),
+      0 12px 28px -18px var(--elev-lo-strong);
+  }
 
-/* Recessed well — grouped content, inputs, tag trays */
-.skeuo-inset {
-  background: color-mix(in oklch, var(--card) 92%, var(--foreground) 4%);
-  border: 1px solid var(--elev-edge);
-  border-radius: calc(var(--radius) - 0.15rem);
-  box-shadow:
-    0 1px 3px -1px var(--elev-lo) inset,
-    0 1px 0 0 var(--elev-hi);
-}
+  /* Recessed well — grouped content, inputs, tag trays */
+  .skeuo-inset {
+    background: color-mix(in oklch, var(--card) 92%, var(--foreground) 4%);
+    border: 1px solid var(--elev-edge);
+    border-radius: calc(var(--radius) - 0.15rem);
+    box-shadow:
+      0 1px 3px -1px var(--elev-lo) inset,
+      0 1px 0 0 var(--elev-hi);
+  }
 
-/* Interactive card — lifts gently on hover, gains a gold hairline */
-.skeuo-card {
-  background: var(--card);
-  border: 1px solid var(--elev-edge);
-  border-radius: var(--radius);
-  box-shadow:
-    0 1px 0 0 var(--elev-hi) inset,
-    0 1px 2px -1px var(--elev-lo),
-    0 14px 30px -20px var(--elev-lo-strong);
-  transition:
-    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
-}
-.skeuo-card:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in oklch, var(--gold) 45%, var(--elev-edge));
-  box-shadow:
-    0 1px 0 0 var(--elev-hi) inset,
-    0 2px 4px -1px var(--elev-lo),
-    0 26px 48px -24px var(--elev-lo-strong);
-}
+  /* Interactive card — lifts gently on hover, gains a gold hairline */
+  .skeuo-card {
+    background: var(--card);
+    border: 1px solid var(--elev-edge);
+    border-radius: var(--radius);
+    box-shadow:
+      0 1px 0 0 var(--elev-hi) inset,
+      0 1px 2px -1px var(--elev-lo),
+      0 14px 30px -20px var(--elev-lo-strong);
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s ease,
+      border-color 0.35s ease;
+  }
 
-/* Primary button — deep navy, quietly confident */
-.skeuo-btn {
-  position: relative;
-  isolation: isolate;
-  border-radius: 0.7rem;
-  background:
-    linear-gradient(
-      180deg,
-      color-mix(in oklch, var(--primary) 86%, white) 0%,
-      var(--primary) 55%,
-      color-mix(in oklch, var(--primary) 88%, black) 100%
-    );
-  color: var(--primary-foreground);
-  border: 1px solid color-mix(in oklch, var(--primary) 60%, black 10%);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.22) inset,
-    0 10px 22px -14px color-mix(in oklch, var(--primary) 60%, transparent),
-    0 2px 4px -2px rgba(0, 0, 0, 0.2);
-  transition:
-    transform 0.14s ease,
-    box-shadow 0.22s ease,
-    filter 0.22s ease;
-}
-.skeuo-btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.05);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.25) inset,
-    0 16px 30px -14px color-mix(in oklch, var(--primary) 66%, transparent),
-    0 3px 6px -2px rgba(0, 0, 0, 0.22);
-}
-.skeuo-btn:active {
-  transform: translateY(0) scale(0.99);
-}
+  .skeuo-card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in oklch, var(--gold) 45%, var(--elev-edge));
+    box-shadow:
+      0 1px 0 0 var(--elev-hi) inset,
+      0 2px 4px -1px var(--elev-lo),
+      0 26px 48px -24px var(--elev-lo-strong);
+  }
 
-/* Secondary button — paper/metal, hairline border */
-.skeuo-btn-ghost {
-  position: relative;
-  isolation: isolate;
-  border-radius: 0.7rem;
-  background: color-mix(in oklch, var(--card) 96%, var(--foreground) 2%);
-  color: var(--foreground);
-  border: 1px solid var(--elev-edge);
-  box-shadow:
-    0 1px 0 var(--elev-hi) inset,
-    0 8px 18px -14px var(--elev-lo-strong),
-    0 1px 2px -1px var(--elev-lo);
-  transition:
-    transform 0.14s ease,
-    box-shadow 0.22s ease,
-    border-color 0.22s ease;
-}
-.skeuo-btn-ghost:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in oklch, var(--gold) 40%, var(--elev-edge));
-  box-shadow:
-    0 1px 0 var(--elev-hi) inset,
-    0 12px 24px -14px var(--elev-lo-strong),
-    0 2px 4px -2px var(--elev-lo);
-}
-.skeuo-btn-ghost:active {
-  transform: translateY(0);
-}
+  /* Primary button — deep navy, quietly confident */
+  .skeuo-btn {
+    position: relative;
+    isolation: isolate;
+    border-radius: 0.7rem;
+    background:
+      linear-gradient(180deg,
+        color-mix(in oklch, var(--primary) 86%, white) 0%,
+        var(--primary) 55%,
+        color-mix(in oklch, var(--primary) 88%, black) 100%);
+    color: var(--primary-foreground);
+    border: 1px solid color-mix(in oklch, var(--primary) 60%, black 10%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.22) inset,
+      0 10px 22px -14px color-mix(in oklch, var(--primary) 60%, transparent),
+      0 2px 4px -2px rgba(0, 0, 0, 0.2);
+    transition:
+      transform 0.14s ease,
+      box-shadow 0.22s ease,
+      filter 0.22s ease;
+  }
 
-/* Small pill / chip — quiet, hairline */
-.skeuo-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.38rem 0.8rem;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.78rem;
-  letter-spacing: 0.01em;
-  color: var(--foreground);
-  background: color-mix(in oklch, var(--card) 94%, var(--foreground) 3%);
-  border: 1px solid var(--elev-edge);
-  box-shadow: 0 1px 0 var(--elev-hi) inset;
-}
+  .skeuo-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.25) inset,
+      0 16px 30px -14px color-mix(in oklch, var(--primary) 66%, transparent),
+      0 3px 6px -2px rgba(0, 0, 0, 0.22);
+  }
 
-/* Round icon medallion — brass ring on ink */
-.skeuo-medallion {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold);
-  background:
-    linear-gradient(
-      160deg,
-      color-mix(in oklch, var(--primary) 86%, white 8%) 0%,
-      var(--primary) 60%,
-      color-mix(in oklch, var(--primary) 88%, black) 100%
-    );
-  border: 1px solid color-mix(in oklch, var(--gold) 45%, transparent);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.16) inset,
-    0 8px 18px -12px color-mix(in oklch, var(--primary) 55%, transparent);
-}
+  .skeuo-btn:active {
+    transform: translateY(0) scale(0.99);
+  }
 
-/* Text treatments — restrained */
-.emboss {
-  text-shadow: none;
-}
+  /* Secondary button — paper/metal, hairline border */
+  .skeuo-btn-ghost {
+    position: relative;
+    isolation: isolate;
+    border-radius: 0.7rem;
+    background: color-mix(in oklch, var(--card) 96%, var(--foreground) 2%);
+    color: var(--foreground);
+    border: 1px solid var(--elev-edge);
+    box-shadow:
+      0 1px 0 var(--elev-hi) inset,
+      0 8px 18px -14px var(--elev-lo-strong),
+      0 1px 2px -1px var(--elev-lo);
+    transition:
+      transform 0.14s ease,
+      box-shadow 0.22s ease,
+      border-color 0.22s ease;
+  }
 
-.text-3d {
-  background: linear-gradient(
-    100deg,
-    var(--gold-deep) 0%,
-    var(--gold) 55%,
-    var(--gold-deep) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: none;
-}
+  .skeuo-btn-ghost:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in oklch, var(--gold) 40%, var(--elev-edge));
+    box-shadow:
+      0 1px 0 var(--elev-hi) inset,
+      0 12px 24px -14px var(--elev-lo-strong),
+      0 2px 4px -2px var(--elev-lo);
+  }
 
-.text-gold {
-  color: var(--gold-deep);
-}
-.dark .text-gold {
-  color: var(--gold);
-}
+  .skeuo-btn-ghost:active {
+    transform: translateY(0);
+  }
 
-/* legacy glass utility (kept for compatibility) */
-.glass-panel {
-  background: color-mix(in oklch, var(--card) 80%, transparent);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid color-mix(in oklch, var(--foreground) 8%, transparent);
-}
+  /* Small pill / chip — quiet, hairline */
+  .skeuo-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.38rem 0.8rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
+    color: var(--foreground);
+    background: color-mix(in oklch, var(--card) 94%, var(--foreground) 3%);
+    border: 1px solid var(--elev-edge);
+    box-shadow: 0 1px 0 var(--elev-hi) inset;
+  }
 
-.hero-gradient {
-  background:
-    radial-gradient(ellipse at 20% 8%, color-mix(in oklch, var(--primary) 12%, transparent) 0%, transparent 52%),
-    radial-gradient(ellipse at 82% 92%, color-mix(in oklch, var(--gold) 12%, transparent) 0%, transparent 50%);
-}
+  /* Round icon medallion — brass ring on ink */
+  .skeuo-medallion {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    background:
+      linear-gradient(160deg,
+        color-mix(in oklch, var(--primary) 86%, white 8%) 0%,
+        var(--primary) 60%,
+        color-mix(in oklch, var(--primary) 88%, black) 100%);
+    border: 1px solid color-mix(in oklch, var(--gold) 45%, transparent);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.16) inset,
+      0 8px 18px -12px color-mix(in oklch, var(--primary) 55%, transparent);
+  }
 
-/* Symmetric, clean radii (previously lumpy asymmetric shapes) */
-.radius-morph,
-.radius-morph-alt {
-  border-radius: 1.25rem;
-}
+  /* Text treatments — restrained */
+  .emboss {
+    text-shadow: none;
+  }
 
-.section-anchor {
-  scroll-margin-top: 6rem;
-}
+  .text-3d {
+    background: linear-gradient(100deg,
+        var(--gold-deep) 0%,
+        var(--gold) 55%,
+        var(--gold-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+  }
 
-/* Thin brass rule used as a section divider */
-.rule-gold {
-  height: 2px;
-  border: 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklch, var(--gold) 70%, transparent) 30%,
-    color-mix(in oklch, var(--gold) 70%, transparent) 70%,
-    transparent
-  );
-}
+  .text-gold {
+    color: var(--gold-deep);
+  }
 
-/* ================================================================== *
+  .dark .text-gold {
+    color: var(--gold);
+  }
+
+  /* legacy glass utility (kept for compatibility) */
+  .glass-panel {
+    background: color-mix(in oklch, var(--card) 80%, transparent);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid color-mix(in oklch, var(--foreground) 8%, transparent);
+  }
+
+  .hero-gradient {
+    background:
+      radial-gradient(ellipse at 20% 8%, color-mix(in oklch, var(--primary) 12%, transparent) 0%, transparent 52%),
+      radial-gradient(ellipse at 82% 92%, color-mix(in oklch, var(--gold) 12%, transparent) 0%, transparent 50%);
+  }
+
+  /* Symmetric, clean radii (previously lumpy asymmetric shapes) */
+  .radius-morph,
+  .radius-morph-alt {
+    border-radius: 1.25rem;
+  }
+
+  .section-anchor {
+    scroll-margin-top: 6rem;
+  }
+
+  /* Thin brass rule used as a section divider */
+  .rule-gold {
+    height: 2px;
+    border: 0;
+    background: linear-gradient(90deg,
+        transparent,
+        color-mix(in oklch, var(--gold) 70%, transparent) 30%,
+        color-mix(in oklch, var(--gold) 70%, transparent) 70%,
+        transparent);
+  }
+
+  /* ================================================================== *
  * BOOKSHELF — the certifications / learning centerpiece.
  * A walnut bookcase whose spines are courses, awards and current reads.
  * ================================================================== */
 
-/* Bookcase frame */
-.bookcase {
-  position: relative;
-  border-radius: 1rem;
-  padding: 0.5rem 1.15rem 0;
-  background:
-    linear-gradient(180deg,
-      color-mix(in oklch, var(--wood-light) 88%, white 6%) 0%,
-      var(--wood) 40%,
-      var(--wood-dark) 100%);
-  border: 1px solid var(--wood-edge);
-  box-shadow:
-    0 2px 0 0 color-mix(in oklch, white 22%, transparent) inset,
-    0 -3px 10px -4px rgba(0, 0, 0, 0.5) inset,
-    0 30px 60px -30px rgba(0, 0, 0, 0.55),
-    0 10px 24px -18px rgba(0, 0, 0, 0.5);
-}
-/* faint vertical wood grain */
-.bookcase::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  opacity: 0.5;
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent 0 7px,
-    rgba(0, 0, 0, 0.05) 7px 8px,
-    transparent 8px 15px,
-    rgba(255, 255, 255, 0.03) 15px 16px
-  );
+  /* Bookcase frame */
+  .bookcase {
+    position: relative;
+    border-radius: 1rem;
+    padding: 0.5rem 1.15rem 0;
+    background:
+      linear-gradient(180deg,
+        color-mix(in oklch, var(--wood-light) 88%, white 6%) 0%,
+        var(--wood) 40%,
+        var(--wood-dark) 100%);
+    border: 1px solid var(--wood-edge);
+    box-shadow:
+      0 2px 0 0 color-mix(in oklch, white 22%, transparent) inset,
+      0 -3px 10px -4px rgba(0, 0, 0, 0.5) inset,
+      0 30px 60px -30px rgba(0, 0, 0, 0.55),
+      0 10px 24px -18px rgba(0, 0, 0, 0.5);
+  }
+
+  /* faint vertical wood grain */
+  .bookcase::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: repeating-linear-gradient(90deg,
+        transparent 0 7px,
+        rgba(0, 0, 0, 0.05) 7px 8px,
+        transparent 8px 15px,
+        rgba(255, 255, 255, 0.03) 15px 16px);
+  }
+
+  /* One shelf: a row of books resting on a plank */
+  .shelf {
+    position: relative;
+    z-index: 1;
+  }
+
+  .shelf-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.4rem;
+    min-height: 210px;
+    padding: 0 0.35rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+  }
+
+  .shelf-row::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .shelf-row::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 999px;
+  }
+
+  /* The wooden plank under a row of books */
+  .shelf-plank {
+    position: relative;
+    height: 20px;
+    margin: 0 -1.15rem 1.25rem;
+    background:
+      linear-gradient(180deg,
+        var(--wood-light) 0%,
+        var(--wood) 45%,
+        var(--wood-dark) 100%);
+    border-top: 1px solid color-mix(in oklch, white 22%, transparent);
+    box-shadow:
+      0 -8px 16px -10px rgba(0, 0, 0, 0.5),
+      0 6px 12px -6px rgba(0, 0, 0, 0.55);
+  }
+
+  .shelf-plank::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 6px;
+    background: var(--wood-dark);
+    filter: brightness(0.8);
+  }
+
+  /* A book standing on its spine */
+  .book {
+    position: relative;
+    flex: 0 0 auto;
+    width: clamp(40px, 7.5vw, 52px);
+    border-radius: 3px 5px 5px 3px;
+    color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.28);
+    box-shadow:
+      2px 0 0 rgba(0, 0, 0, 0.18) inset,
+      -3px 0 6px -3px rgba(0, 0, 0, 0.5),
+      3px 6px 12px -8px rgba(0, 0, 0, 0.6);
+    cursor: default;
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
+    overflow: hidden;
+  }
+
+  /* spine sheen + binding highlight */
+  .book::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+        rgba(255, 255, 255, 0.22) 0%,
+        rgba(255, 255, 255, 0.04) 14%,
+        transparent 30%,
+        transparent 78%,
+        rgba(0, 0, 0, 0.28) 100%);
+  }
+
+  /* gold foil bands near top & bottom of the spine */
+  .book::after {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 16px;
+    height: 2px;
+    background: color-mix(in oklch, var(--gold) 85%, white 8%);
+    box-shadow: 0 148px 0 color-mix(in oklch, var(--gold) 85%, white 8%);
+    opacity: 0.85;
+  }
+
+  .book-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 4px 10px;
+  }
+
+  .book-title {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 0.69rem;
+    line-height: 1.02;
+    letter-spacing: 0.005em;
+    max-height: 162px;
+    overflow: hidden;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  }
+
+  .book-org {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    max-height: 60px;
+    overflow: hidden;
+  }
+
+  .book-year {
+    font-size: 0.55rem;
+    font-weight: 700;
+    opacity: 0.85;
+    letter-spacing: 0.02em;
+  }
+
+  .book.is-clickable {
+    cursor: pointer;
+    transform-origin: bottom center;
+    transition: transform 0.5s cubic-bezier(0.2, 1.2, 0.3, 1), box-shadow 0.5s ease, filter 0.5s ease;
+  }
+
+  .book.is-clickable:hover,
+  .book.is-clickable:focus-visible {
+    transform: translateY(-12px) scale(1.08) rotate(-5deg);
+    outline: none;
+    z-index: 20;
+    box-shadow:
+      2px 0 0 rgba(255, 255, 255, 0.15) inset,
+      -10px 15px 20px -5px rgba(0, 0, 0, 0.8),
+      0 35px 50px -15px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.1) contrast(1.05);
+  }
+
+  .book.is-clickable:focus-visible {
+    box-shadow:
+      0 0 0 2px var(--gold),
+      2px 0 0 rgba(255, 255, 255, 0.15) inset,
+      -10px 15px 20px -5px rgba(0, 0, 0, 0.8),
+      0 35px 50px -15px rgba(0, 0, 0, 0.9);
+  }
+
+  /* A "featured" award book gets a taller stature + crown chip handled inline */
+  .book-award-tag {
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    color: var(--gold);
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Bookmark ribbon for "currently reading" */
+  .book-bookmark {
+    position: absolute;
+    top: -3px;
+    right: 9px;
+    z-index: 2;
+    width: 8px;
+    height: 26px;
+    background: linear-gradient(180deg, var(--gold) 0%, var(--gold-deep) 100%);
+    box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.5);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
+  }
+
+  /* A trophy object standing on the shelf */
+  .trophy-obj {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    align-self: flex-end;
+    padding: 0 0.35rem 2px;
+    color: var(--gold);
+  }
+
+  .trophy-cup {
+    filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.45));
+    color: var(--gold);
+  }
+
+  .dark .trophy-cup {
+    color: var(--gold);
+  }
+
+  .trophy-base {
+    margin-top: -2px;
+    width: 34px;
+    height: 8px;
+    border-radius: 3px;
+    background: linear-gradient(180deg, var(--gold) 0%, var(--gold-deep) 100%);
+    box-shadow: 0 4px 6px -3px rgba(0, 0, 0, 0.5);
+  }
+
+  .trophy-label {
+    margin-top: 4px;
+    font-size: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: color-mix(in oklch, white 88%, var(--gold));
+    max-width: 60px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  /* Engraved brass plaque — for achievements */
+  .plaque {
+    position: relative;
+    border-radius: 0.5rem;
+    padding: 0.9rem 1rem 0.9rem 2.6rem;
+    background:
+      linear-gradient(180deg,
+        color-mix(in oklch, var(--gold) 32%, var(--card)) 0%,
+        color-mix(in oklch, var(--gold) 18%, var(--card)) 100%);
+    border: 1px solid color-mix(in oklch, var(--gold) 55%, transparent);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.3) inset,
+      0 8px 18px -14px rgba(0, 0, 0, 0.4);
+  }
+
+  .plaque::before {
+    content: "";
+    position: absolute;
+    left: 0.9rem;
+    top: 1.05rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 35% 30%, var(--gold) 0%, var(--gold-deep) 70%);
+    box-shadow: 0 0 0 1px color-mix(in oklch, var(--gold-deep) 60%, transparent);
+  }
+
 }
 
-/* One shelf: a row of books resting on a plank */
-.shelf {
-  position: relative;
-  z-index: 1;
-}
-.shelf-row {
-  display: flex;
-  align-items: flex-end;
-  gap: 0.4rem;
-  min-height: 210px;
-  padding: 0 0.35rem;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: thin;
-}
-.shelf-row::-webkit-scrollbar { height: 6px; }
-.shelf-row::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 999px;
-}
-
-/* The wooden plank under a row of books */
-.shelf-plank {
-  position: relative;
-  height: 20px;
-  margin: 0 -1.15rem 1.25rem;
-  background:
-    linear-gradient(180deg,
-      var(--wood-light) 0%,
-      var(--wood) 45%,
-      var(--wood-dark) 100%);
-  border-top: 1px solid color-mix(in oklch, white 22%, transparent);
-  box-shadow:
-    0 -8px 16px -10px rgba(0, 0, 0, 0.5),
-    0 6px 12px -6px rgba(0, 0, 0, 0.55);
-}
-.shelf-plank::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: -6px;
-  height: 6px;
-  background: var(--wood-dark);
-  filter: brightness(0.8);
-}
-
-/* A book standing on its spine */
-.book {
-  position: relative;
-  flex: 0 0 auto;
-  width: clamp(40px, 7.5vw, 52px);
-  border-radius: 3px 5px 5px 3px;
-  color: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(0, 0, 0, 0.28);
-  box-shadow:
-    2px 0 0 rgba(0, 0, 0, 0.18) inset,
-    -3px 0 6px -3px rgba(0, 0, 0, 0.5),
-    3px 6px 12px -8px rgba(0, 0, 0, 0.6);
-  cursor: default;
-  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
-  overflow: hidden;
-}
-/* spine sheen + binding highlight */
-.book::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.22) 0%,
-    rgba(255, 255, 255, 0.04) 14%,
-    transparent 30%,
-    transparent 78%,
-    rgba(0, 0, 0, 0.28) 100%
-  );
-}
-/* gold foil bands near top & bottom of the spine */
-.book::after {
-  content: "";
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  top: 16px;
-  height: 2px;
-  background: color-mix(in oklch, var(--gold) 85%, white 8%);
-  box-shadow: 0 148px 0 color-mix(in oklch, var(--gold) 85%, white 8%);
-  opacity: 0.85;
-}
-.book-content {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 4px 10px;
-}
-.book-title {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.69rem;
-  line-height: 1.02;
-  letter-spacing: 0.005em;
-  max-height: 162px;
-  overflow: hidden;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
-}
-.book-org {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-size: 0.55rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  opacity: 0.8;
-  max-height: 60px;
-  overflow: hidden;
-}
-.book-year {
-  font-size: 0.55rem;
-  font-weight: 700;
-  opacity: 0.85;
-  letter-spacing: 0.02em;
-}
-.book.is-clickable { cursor: pointer; }
-.book.is-clickable:hover,
-.book.is-clickable:focus-visible {
-  transform: translateY(-16px);
-  outline: none;
-  box-shadow:
-    2px 0 0 rgba(0, 0, 0, 0.18) inset,
-    -4px 0 10px -3px rgba(0, 0, 0, 0.55),
-    0 22px 30px -12px rgba(0, 0, 0, 0.6);
-}
-.book.is-clickable:focus-visible {
-  box-shadow:
-    0 0 0 2px var(--gold),
-    2px 0 0 rgba(0, 0, 0, 0.18) inset,
-    0 22px 30px -12px rgba(0, 0, 0, 0.6);
-}
-
-/* A "featured" award book gets a taller stature + crown chip handled inline */
-.book-award-tag {
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  color: var(--gold);
-  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
-}
-
-/* Bookmark ribbon for "currently reading" */
-.book-bookmark {
-  position: absolute;
-  top: -3px;
-  right: 9px;
-  z-index: 2;
-  width: 8px;
-  height: 26px;
-  background: linear-gradient(180deg, var(--gold) 0%, var(--gold-deep) 100%);
-  box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.5);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
-}
-
-/* A trophy object standing on the shelf */
-.trophy-obj {
-  flex: 0 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  align-self: flex-end;
-  padding: 0 0.35rem 2px;
-  color: var(--gold);
-}
-.trophy-cup {
-  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.45));
-  color: var(--gold);
-}
-.dark .trophy-cup { color: var(--gold); }
-.trophy-base {
-  margin-top: -2px;
-  width: 34px;
-  height: 8px;
-  border-radius: 3px;
-  background: linear-gradient(180deg, var(--gold) 0%, var(--gold-deep) 100%);
-  box-shadow: 0 4px 6px -3px rgba(0, 0, 0, 0.5);
-}
-.trophy-label {
-  margin-top: 4px;
-  font-size: 0.5rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: color-mix(in oklch, white 88%, var(--gold));
-  max-width: 60px;
-  text-align: center;
-  line-height: 1.1;
-}
-
-/* Engraved brass plaque — for achievements */
-.plaque {
-  position: relative;
-  border-radius: 0.5rem;
-  padding: 0.9rem 1rem 0.9rem 2.6rem;
-  background:
-    linear-gradient(180deg,
-      color-mix(in oklch, var(--gold) 32%, var(--card)) 0%,
-      color-mix(in oklch, var(--gold) 18%, var(--card)) 100%);
-  border: 1px solid color-mix(in oklch, var(--gold) 55%, transparent);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.3) inset,
-    0 8px 18px -14px rgba(0, 0, 0, 0.4);
-}
-.plaque::before {
-  content: "";
-  position: absolute;
-  left: 0.9rem;
-  top: 1.05rem;
-  width: 9px;
-  height: 9px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 35% 30%, var(--gold) 0%, var(--gold-deep) 70%);
-  box-shadow: 0 0 0 1px color-mix(in oklch, var(--gold-deep) 60%, transparent);
-}
-
-} /* end @layer components */
+/* end @layer components */
 
 /* floating parallax shapes */
 @keyframes float-slow {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-16px) rotate(4deg); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-16px) rotate(4deg);
+  }
 }
+
 @keyframes float-medium {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-26px) rotate(-6deg); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-26px) rotate(-6deg);
+  }
 }
+
 .animate-float-slow {
   animation: float-slow 12s ease-in-out infinite;
 }
+
 .animate-float-medium {
   animation: float-medium 9s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .animate-float-slow,
   .animate-float-medium {
     animation: none;
   }
+
   .skeuo-card:hover,
   .skeuo-btn:hover,
   .skeuo-btn-ghost:hover,
   .book.is-clickable:hover {
     transform: none;
   }
+
   html {
     scroll-behavior: auto;
   }
@@ -716,14 +781,17 @@
 ::-webkit-scrollbar {
   width: 12px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--background);
 }
+
 ::-webkit-scrollbar-thumb {
   background: color-mix(in oklch, var(--primary) 40%, var(--background));
   border-radius: 999px;
   border: 3px solid var(--background);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
 }

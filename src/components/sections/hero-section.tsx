@@ -1,60 +1,143 @@
-import { ArrowRight, Download, Sparkles } from "lucide-react";
-
-import { CountUp } from "@/components/count-up";
-import { hero, site } from "@/data/portfolio";
+import { Linkedin, ArrowRight } from "lucide-react";
+import { site, hero } from "@/data/portfolio";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 export function HeroSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    // Subtle float / parallax for the whole container
+    const container = containerRef.current;
+    if (!container) return;
+
+    // Mouse movement parallax effect
+    const handleMouseMove = (e: MouseEvent) => {
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX / innerWidth - 0.5) * 20; // max 20px movement
+      const y = (e.clientY / innerHeight - 0.5) * 20;
+
+      gsap.to(container, {
+        x: x * 0.5,
+        y: y * 0.5,
+        rotateX: y * -0.05,
+        rotateY: x * 0.05,
+        ease: "power2.out",
+        duration: 1
+      });
+
+      if (imageRef.current) {
+        gsap.to(imageRef.current, {
+          x: x * -0.8,
+          y: y * -0.8,
+          scale: 1.05,
+          ease: "power2.out",
+          duration: 1.5
+        });
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
     <section
       id="top"
-      className="section-anchor hero-gradient relative flex min-h-screen items-center overflow-hidden pt-28 pb-16"
+      className="relative flex min-h-screen w-full items-center justify-center p-4 md:p-8 shrink-0 overflow-hidden"
     >
-      <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 text-center">
-        <span className="skeuo-chip text-primary mb-7">
-          <Sparkles className="size-4" />
-          {hero.kicker}
-        </span>
-
-        <h1 className="font-display emboss text-4xl leading-[1.05] font-extrabold tracking-tight sm:text-5xl md:text-6xl">
-          {hero.headline}
-          <br />
-          <span className="text-3d">{hero.highlight}</span>
-        </h1>
-
-        <p className="text-muted-foreground mt-6 max-w-xl text-base leading-relaxed sm:text-lg">
-          {hero.tagline}
-        </p>
-
-        <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row">
-          <a href="#projects" className="skeuo-btn flex items-center gap-2 px-7 py-3.5 text-sm font-bold">
-            See my work
-            <ArrowRight className="size-4" />
+      {/* Floating Container */}
+      <div
+        ref={containerRef}
+        className="relative flex w-full max-w-7xl h-[85vh] lg:h-[80vh] rounded-[2.5rem] bg-card/80 backdrop-blur-2xl border border-white/10 overflow-hidden shadow-2xl"
+        style={{
+          boxShadow: '0 25px 50px -12px var(--elev-lo-strong), 0 0 0 1px var(--elev-edge)'
+        }}
+      >
+        {/* Floating Navigation Inside Container */}
+        <nav className="absolute top-8 right-12 z-50 flex gap-8">
+          <a href="#about" className="text-sm font-semibold tracking-wider text-muted-foreground hover:text-foreground transition-colors">
+            ABOUT
           </a>
-          <a
-            href={site.resumePath}
-            download
-            className="skeuo-btn-ghost flex items-center gap-2 px-7 py-3.5 text-sm font-bold"
-          >
-            <Download className="size-4" />
-            Download resume
+          <a href="#projects" className="text-sm font-semibold tracking-wider text-muted-foreground hover:text-foreground transition-colors">
+            PROJECTS
           </a>
-        </div>
+          <a href="#contact" className="text-sm font-semibold tracking-wider text-muted-foreground hover:text-foreground transition-colors">
+            CONTACT
+          </a>
+        </nav>
 
-        <div className="skeuo radius-morph mt-16 grid w-full max-w-2xl grid-cols-2 gap-4 p-5 sm:grid-cols-4">
-          {hero.stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="skeuo-inset flex flex-col items-center gap-1 rounded-2xl px-3 py-4"
+        {/* Left Side: Content */}
+        <div className="relative z-20 flex w-full lg:w-7/12 flex-col justify-center px-10 md:px-16 lg:px-20 h-full">
+          <div className="absolute top-8 left-10 md:left-16 lg:left-20 text-lg font-bold font-display tracking-wide text-foreground">
+            {site.brand || site.name}
+          </div>
+
+          <span className="text-tertiary-foreground bg-tertiary/20 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-6 inline-flex w-fit shadow-sm border border-tertiary/30">
+            UI/UX + AI Engineer
+          </span>
+
+          <h1 className="font-display text-5xl md:text-6xl lg:text-[5.5rem] font-bold leading-[1.05] mb-6 text-foreground drop-shadow-sm">
+            Crafting
+            <br />
+            <span className="text-3d italic pe-2">Digital</span>
+            <br />
+            Realities.
+          </h1>
+
+          <p className="text-muted-foreground max-w-md text-base md:text-lg mb-10 leading-relaxed font-medium">
+            {hero.tagline ||
+              "I build highly crafted AI and ML applications through premium, intelligent design systems."}
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href="#projects"
+              className="skeuo-btn px-8 py-4 rounded-full font-bold shadow-sm transition-all flex items-center gap-2 group"
             >
-              <span className="text-3d font-display text-2xl font-extrabold sm:text-3xl">
-                <CountUp value={stat.value} />
-              </span>
-              <span className="text-muted-foreground text-center text-[0.7rem] font-bold tracking-wide uppercase">
-                {stat.label}
-              </span>
-            </div>
-          ))}
+              View Work
+              <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href={site.linkedin || "#"}
+              className="skeuo-btn-ghost px-8 py-4 rounded-full font-bold shadow-sm transition-all flex items-center gap-2"
+            >
+              <Linkedin className="size-4" />
+              Connect
+            </a>
+          </div>
         </div>
+
+        {/* Right Side: Portrait inside Organic SVG mask */}
+        <div className="absolute inset-y-0 right-0 w-full lg:w-6/12 pointer-events-none hidden lg:block z-10">
+
+          {/* SVG Definition for the organic clippath */}
+          <svg width="0" height="0" className="absolute">
+            <defs>
+              <clipPath id="heroBlob" clipPathUnits="objectBoundingBox">
+                <path d="M 0.25 0 C 0.5 0.3, 0.05 0.7, 0.3 1 L 1 1 L 1 0 Z" />
+              </clipPath>
+            </defs>
+          </svg>
+
+          {/* Masked Image Container */}
+          <div
+            className="absolute inset-0 w-full h-full bg-surface-tertiary"
+            style={{ clipPath: 'url(#heroBlob)' }}
+          >
+            {/* The image itself */}
+            <img
+              ref={imageRef}
+              src={site.profilePath}
+              alt={site.name}
+              className="w-full h-full object-cover object-[center_20%] opacity-90 mix-blend-luminosity filter contrast-125"
+            />
+            {/* Inner glow overlay on the image */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-transparent mix-blend-overlay" />
+          </div>
+        </div>
+
       </div>
     </section>
   );
