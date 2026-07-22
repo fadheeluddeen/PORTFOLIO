@@ -16,7 +16,6 @@
 export const profile = {
   name: "Fadheeluddeen K",
   shortName: "Fadheel",
-  brand: "Fadheel.dev",
   title: "AI / ML Engineer",
   roles: ["AI Engineer", "Machine Learning Engineer", "Data Scientist", "Generative AI / NLP Engineer"],
   location: "Chennai, Tamil Nadu",

@@ -110,7 +110,7 @@ export function AboutSection() {
 
             {/* Premium Stat Cards */}
             <div className="mt-12 grid grid-cols-2 gap-6">
-              {about.cards.map((card, i) => (
+              {about.cards.map((card) => (
                 <div key={card.label} className="about-text-reveal group relative flex items-center gap-4 rounded-3xl bg-card/60 border border-white/5 p-5 shadow-lg backdrop-blur-md hover:-translate-y-2 transition-all duration-300">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <span className="relative flex size-12 shrink-0 items-center justify-center rounded-2xl bg-surface-secondary text-2xl shadow-inner group-hover:scale-110 group-hover:text-gold transition-all duration-300">

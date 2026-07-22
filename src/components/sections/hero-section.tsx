@@ -1,5 +1,5 @@
-import { Linkedin, ArrowRight } from "lucide-react";
-import { site, hero } from "@/data/portfolio";
+import { Linkedin } from "lucide-react";
+import { site } from "@/data/portfolio";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
@@ -50,7 +50,7 @@ export function HeroSection() {
       {/* Floating Container */}
       <div
         ref={containerRef}
-        className="relative flex w-full max-w-7xl h-[85vh] lg:h-[80vh] rounded-[2.5rem] bg-card/80 backdrop-blur-2xl border border-white/10 overflow-hidden shadow-2xl"
+        className="relative flex w-full max-w-7xl min-h-[85vh] h-auto lg:min-h-0 lg:h-[80vh] rounded-[2.5rem] bg-card/80 backdrop-blur-2xl border border-white/10 overflow-hidden shadow-2xl"
         style={{
           boxShadow: '0 25px 50px -12px var(--elev-lo-strong), 0 0 0 1px var(--elev-edge)'
         }}
@@ -69,43 +69,37 @@ export function HeroSection() {
         </nav>
 
         {/* Left Side: Content */}
-        <div className="relative z-20 flex w-full lg:w-7/12 flex-col justify-center px-10 md:px-16 lg:px-20 h-full">
-          <div className="absolute top-8 left-10 md:left-16 lg:left-20 text-lg font-bold font-display tracking-wide text-foreground">
-            {site.brand || site.name}
+        <div className="relative z-10 flex w-full lg:w-7/12 flex-col px-10 md:px-16 lg:px-20 h-full pt-6 md:pt-8 pb-8 md:pb-12">
+
+          {/* Top Brand Name (In normal flow to prevent overlap) */}
+          <div className="text-lg md:text-2xl font-bold font-display tracking-wide text-muted-foreground/30 md:text-foreground z-0 pointer-events-none select-none">
+            {site.name}
           </div>
 
-          <span className="text-tertiary-foreground bg-tertiary/20 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-6 inline-flex w-fit shadow-sm border border-tertiary/30">
-            UI/UX + AI Engineer
-          </span>
+          <div className="relative z-20 flex-1 flex flex-col justify-center mt-6 sm:mt-8 md:mt-0">
+            <span className="text-tertiary-foreground bg-tertiary/20 px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-6 inline-flex w-fit shadow-sm border border-tertiary/30">
+              {site.title || "AI Engineer"}
+            </span>
 
-          <h1 className="font-display text-5xl md:text-6xl lg:text-[5.5rem] font-bold leading-[1.05] mb-6 text-foreground drop-shadow-sm">
-            Crafting
-            <br />
-            <span className="text-3d italic pe-2">Digital</span>
-            <br />
-            Realities.
-          </h1>
+            <h1 className="font-display text-5xl md:text-6xl lg:text-[5.5rem] font-bold leading-[1.05] mb-6 text-foreground drop-shadow-sm">
+              Crafting
+              <br />
+              <span className="text-3d italic pe-2">Digital</span>
+              <br />
+              Realities.
+            </h1>
 
-          <p className="text-muted-foreground max-w-md text-base md:text-lg mb-10 leading-relaxed font-medium">
-            {hero.tagline ||
-              "I build highly crafted AI and ML applications through premium, intelligent design systems."}
-          </p>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <a
-              href="#projects"
-              className="skeuo-btn px-8 py-4 rounded-full font-bold shadow-sm transition-all flex items-center gap-2 group"
-            >
-              View Work
-              <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href={site.linkedin || "#"}
-              className="skeuo-btn-ghost px-8 py-4 rounded-full font-bold shadow-sm transition-all flex items-center gap-2"
-            >
-              <Linkedin className="size-4" />
-              Connect
-            </a>
+
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href={site.linkedin || "#"}
+                className="skeuo-btn-ghost px-8 py-4 rounded-full font-bold shadow-sm transition-all flex items-center gap-2"
+              >
+                <Linkedin className="size-4" />
+                Connect
+              </a>
+            </div>
           </div>
         </div>
 
