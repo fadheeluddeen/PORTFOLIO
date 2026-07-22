@@ -65,7 +65,10 @@
       "Bash(node \"/c/Users/acer/AppData/Local/Temp/claude/E--my-portfolio-fixed/7f5f3efc-ac52-4781-af84-8f545a580e0c/scratchpad/shot.mjs\")",
       "Bash(node _shot.mjs)",
       "PowerShell(npm run *)",
-      "PowerShell(git *)"
+      "PowerShell(git *)",
+      "PowerShell(\\(Get-Command npx -ErrorAction SilentlyContinue\\).Source; Test-Path node_modules/playwright; Test-Path node_modules/puppeteer; Test-Path node_modules/.bin/playwright.cmd)",
+      "PowerShell(New-Item *)",
+      "PowerShell($ports = 5173,5174,4173; foreach \\($p in $ports\\) { try { $r = Invoke-WebRequest \"http://localhost:$p\" -UseBasicParsing -TimeoutSec 3; \"PORT $p -> $\\($r.StatusCode\\)\" } catch { \"PORT $p -> $\\($_.Exception.Message\\)\" } })"
     ]
   }
 }

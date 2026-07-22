@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Crown, Trophy, Maximize2, X } from "lucide-react";
 
 /**
@@ -112,7 +113,11 @@ function CertLightbox({ cert, onClose }: { cert: Cert; onClose: () => void }) {
     };
   }, [onClose]);
 
-  return (
+  // Rendered via a portal to document.body so the fixed overlay escapes any
+  // ancestor with backdrop-filter/transform/filter (e.g. the backdrop-blur
+  // section wrapper in App.tsx), which would otherwise become the containing
+  // block for `position: fixed` and shove the modal off-screen.
+  return createPortal(
     <div
       className="fixed inset-0 z-[80] flex items-center justify-center p-4 sm:p-8"
       role="dialog"
@@ -150,7 +155,8 @@ function CertLightbox({ cert, onClose }: { cert: Cert; onClose: () => void }) {
           />
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
