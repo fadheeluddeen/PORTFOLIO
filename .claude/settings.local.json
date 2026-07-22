@@ -63,7 +63,9 @@
       "Bash(lsof -ti:4173 -sTCP:LISTEN)",
       "Bash(xargs -r kill)",
       "Bash(node \"/c/Users/acer/AppData/Local/Temp/claude/E--my-portfolio-fixed/7f5f3efc-ac52-4781-af84-8f545a580e0c/scratchpad/shot.mjs\")",
-      "Bash(node _shot.mjs)"
+      "Bash(node _shot.mjs)",
+      "PowerShell(npm run *)",
+      "PowerShell(git *)"
     ]
   }
 }

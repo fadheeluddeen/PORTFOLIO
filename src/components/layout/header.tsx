@@ -90,7 +90,7 @@ export function Header() {
           <span className="skeuo-medallion font-display size-9 rounded-2xl text-xs font-extrabold">
             FK
           </span>
-          {site.brand}
+          {site.name}
         </a>
 
         <div className="flex items-center gap-2">
@@ -121,7 +121,7 @@ export function Header() {
           )}
         >
           <div className="mb-4 flex items-center justify-between">
-            <span className="font-display font-bold">{site.brand}</span>
+            <span className="font-display font-bold">{site.name}</span>
             <button
               type="button"
               aria-label="Close menu"
