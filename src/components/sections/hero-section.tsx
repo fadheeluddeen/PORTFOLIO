@@ -45,31 +45,31 @@ export function HeroSection() {
   return (
     <section
       id="top"
-      className="relative flex min-h-screen w-full items-center justify-center p-4 md:p-8 shrink-0 overflow-hidden"
+      className="relative flex min-h-dvh w-full items-center justify-center p-4 md:p-8 shrink-0 overflow-hidden"
     >
       {/* Floating Container */}
       <div
         ref={containerRef}
-        className="relative flex w-full max-w-7xl min-h-[85vh] h-auto lg:min-h-0 lg:h-[80vh] rounded-[2.5rem] bg-card/80 backdrop-blur-2xl border border-white/10 overflow-hidden shadow-2xl"
+        className="relative flex w-full max-w-7xl min-h-[85dvh] h-auto lg:min-h-0 lg:h-[80dvh] rounded-[2.5rem] bg-card/80 backdrop-blur-2xl border border-white/10 overflow-hidden shadow-2xl"
         style={{
           boxShadow: '0 25px 50px -12px var(--elev-lo-strong), 0 0 0 1px var(--elev-edge)'
         }}
       >
         {/* Floating Navigation Inside Container */}
-        <nav className="absolute top-8 right-12 z-50 flex items-center gap-8">
-          <a href="#about" className="text-sm font-semibold tracking-wider text-muted-foreground hover:text-foreground transition-colors">
+        <nav className="absolute top-4 right-4 sm:top-8 sm:right-12 z-50 flex items-center gap-4 sm:gap-8">
+          <a href="#about" className="hidden sm:inline-block text-sm font-semibold tracking-wider text-muted-foreground hover:text-foreground transition-colors">
             ABOUT
           </a>
-          <a href="#projects" className="text-sm font-semibold tracking-wider text-muted-foreground hover:text-foreground transition-colors">
+          <a href="#projects" className="hidden sm:inline-block text-sm font-semibold tracking-wider text-muted-foreground hover:text-foreground transition-colors">
             PROJECTS
           </a>
-          <a href="#contact" className="text-sm font-semibold tracking-wider text-muted-foreground hover:text-foreground transition-colors">
+          <a href="#contact" className="hidden sm:inline-block text-sm font-semibold tracking-wider text-muted-foreground hover:text-foreground transition-colors">
             CONTACT
           </a>
           <a
             href={site.resumePath}
             download
-            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold tracking-wide shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-primary text-primary-foreground text-xs sm:text-sm font-bold tracking-wide shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
           >
             <Download className="size-4" />
             Resume
@@ -77,10 +77,10 @@ export function HeroSection() {
         </nav>
 
         {/* Left Side: Content */}
-        <div className="relative z-10 flex w-full lg:w-7/12 flex-col px-10 md:px-16 lg:px-20 h-full pt-6 md:pt-8 pb-8 md:pb-12">
+        <div className="relative z-10 flex w-full lg:w-7/12 flex-col px-6 sm:px-10 md:px-16 lg:px-20 h-full pt-6 md:pt-8 pb-8 md:pb-12">
 
           {/* Brand name at top */}
-          <div className="text-lg md:text-2xl font-bold font-display tracking-wide text-muted-foreground/40 pointer-events-none select-none">
+          <div className="text-lg md:text-2xl font-bold font-display tracking-wide text-muted-foreground/40 pointer-events-none select-none pr-28 sm:pr-0 truncate">
             {site.name}
           </div>
 

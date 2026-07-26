@@ -22,7 +22,7 @@ const ContactSection = lazy(() =>
 
 export default function App() {
   return (
-    <div className="bg-transparent min-h-screen">
+    <div className="bg-transparent min-h-dvh">
       <FishBackground />
       <ScrollProgress />
 

@@ -72,7 +72,7 @@ export function AboutSection() {
               />
 
               {/* Floating Academic Overlap */}
-              <div className="absolute -bottom-8 -right-8 flex items-center gap-4 rounded-3xl bg-surface/90 backdrop-blur-xl px-6 py-5 shadow-2xl border border-white/10">
+              <div className="absolute -bottom-6 right-2 sm:-bottom-8 sm:-right-8 flex items-center gap-4 rounded-3xl bg-surface/90 backdrop-blur-xl px-4 py-4 sm:px-6 sm:py-5 shadow-2xl border border-white/10">
                 <span className="flex size-14 items-center justify-center rounded-full bg-gold/20 text-gold text-2xl shadow-inner">
                   🎓
                 </span>
