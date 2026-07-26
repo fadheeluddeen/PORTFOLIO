@@ -554,9 +554,10 @@ export function FishBackground() {
                             const dist = Math.sqrt(ddx * ddx + ddy * ddy);
                             if (dist < nearestDist) { nearestDist = dist; nearestFish = big; }
                         });
-                        if (nearestFish && nearestDist < 400) {
-                            fish.vx += ((nearestFish.x - fish.x) / nearestDist) * 0.02;
-                            fish.vy += ((nearestFish.y - fish.y) / nearestDist) * 0.02;
+                        const target = nearestFish as Fish | null;
+                        if (target && nearestDist < 400) {
+                            fish.vx += ((target.x - fish.x) / nearestDist) * 0.02;
+                            fish.vy += ((target.y - fish.y) / nearestDist) * 0.02;
                         } else {
                             fish.vx += (Math.random() - 0.5) * 0.05;
                             fish.vy += (Math.random() - 0.5) * 0.05;
@@ -582,7 +583,8 @@ export function FishBackground() {
                         } else {
                             let nd = Infinity; let nf: Fish | null = null;
                             smallFishes.forEach((s) => { const ddx = s.x - fish.x, ddy = s.y - fish.y; const d = Math.sqrt(ddx * ddx + ddy * ddy); if (d < nd) { nd = d; nf = s; } });
-                            if (nf && nd < 250) { fish.vx += ((nf.x - fish.x) / nd) * 0.05; fish.vy += ((nf.y - fish.y) / nd) * 0.05; }
+                            const prey = nf as Fish | null;
+                            if (prey && nd < 250) { fish.vx += ((prey.x - fish.x) / nd) * 0.05; fish.vy += ((prey.y - fish.y) / nd) * 0.05; }
                             else { fish.vx += (Math.random() - 0.5) * 0.2; fish.vy += (Math.random() - 0.5) * 0.2; }
                         }
                         const sp = Math.sqrt(fish.vx * fish.vx + fish.vy * fish.vy);
