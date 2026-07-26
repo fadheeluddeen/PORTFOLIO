@@ -41,7 +41,7 @@ export function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="relative py-32 overflow-hidden bg-background shrink-0 w-full z-10">
+    <section id="projects" className="relative py-32 overflow-hidden bg-transparent shrink-0 w-full z-10">
 
       {/* Editorial Title */}
       <div className="mx-auto max-w-7xl px-6 lg:px-12 relative z-10">

@@ -19,13 +19,15 @@ const ICONS: Record<string, ComponentType<{ className?: string }>> = {
 
 // Distinct personalities for each skill group
 const ACCENT_COLORS: Record<string, string> = {
-  "Programming": "oklch(0.70 0.15 230)", // Cyan
-  "AI / ML": "oklch(0.65 0.25 320)",      // Neon Pink
-  "ML Libraries & Tools": "oklch(0.65 0.20 15)", // Rose
-  "Data & Visualization": "oklch(0.60 0.20 280)", // Violet
-  "Web & Backend": "oklch(0.70 0.15 160)", // Emerald
-  "Databases": "oklch(0.75 0.15 85)",      // Gold
-  "DevOps & Tools": "oklch(0.60 0.05 250)", // Slate
+  "Programming": "oklch(0.70 0.15 230)",        // Cyan
+  "AI / ML": "oklch(0.65 0.25 320)",            // Neon Pink
+  "ML Libraries & Tools": "oklch(0.65 0.20 15)",// Rose
+  "Generative AI": "oklch(0.60 0.20 280)",      // Violet
+  "Web & Frontend": "oklch(0.70 0.15 160)",     // Emerald
+  "Backend & APIs": "oklch(0.65 0.12 50)",      // Warm Amber
+  "Databases": "oklch(0.75 0.15 85)",           // Gold
+  "DevOps & Tools": "oklch(0.60 0.05 250)",     // Slate
+  "Data & Visualization": "oklch(0.60 0.20 280)", // Violet (fallback)
 };
 
 export function SkillsSection() {
@@ -55,7 +57,7 @@ export function SkillsSection() {
   }, []);
 
   return (
-    <section id="skills" className="relative py-32 overflow-hidden bg-background">
+    <section id="skills" className="relative py-32 overflow-hidden bg-transparent">
       {/* Background Ambience */}
       <div className="absolute top-0 left-1/4 w-[50vw] h-[50vw] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 

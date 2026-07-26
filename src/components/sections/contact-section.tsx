@@ -1,24 +1,24 @@
-import { useState } from "react";
-import { Copy, Check, Mail, Phone, Linkedin, Github, ArrowUpRight, Terminal as TerminalIcon } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Copy, Check, Mail, Phone, Linkedin, Github, ArrowUpRight } from "lucide-react";
 import { toast } from "sonner";
 import { contact, site } from "@/data/portfolio";
-import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const channels = [
-  { icon: Mail, label: "Email", value: site.email, href: `mailto:${site.email}`, copy: true },
+  { icon: Mail, label: "Email", value: site.email, href: `mailto:${site.email}`, copy: true, color: "oklch(0.65 0.20 15)" },
   {
     icon: Phone,
     label: "Phone",
     value: site.phone,
     href: `tel:${site.phone.replace(/\s/g, "")}`,
     copy: true,
+    color: "oklch(0.60 0.20 280)"
   },
-  { icon: Linkedin, label: "LinkedIn", value: "Connect", href: site.linkedin, copy: false },
-  { icon: Github, label: "GitHub", value: "View Profile", href: site.github, copy: false },
+  { icon: Linkedin, label: "LinkedIn", value: "Connect", href: site.linkedin, copy: false, color: "oklch(0.60 0.15 250)" },
+  { icon: Github, label: "GitHub", value: "View Profile", href: site.github, copy: false, color: "var(--foreground)" },
 ];
 
 export function ContactSection() {
@@ -28,18 +28,36 @@ export function ContactSection() {
   useEffect(() => {
     if (!containerRef.current) return;
     const ctx = gsap.context(() => {
+      // Animate the main headline
       gsap.fromTo(
-        ".command-center",
-        { y: 50, opacity: 0, scale: 0.98 },
+        ".contact-headline",
+        { y: 30, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          scale: 1,
-          duration: 1.2,
+          duration: 1,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top 80%",
+            trigger: ".contact-headline",
+            start: "top 85%",
+          }
+        }
+      );
+
+      // Bounce in the channel pills
+      gsap.fromTo(
+        ".contact-pill",
+        { scale: 0.8, opacity: 0, y: 20 },
+        {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          stagger: 0.1,
+          duration: 0.8,
+          ease: "back.out(1.5)",
+          scrollTrigger: {
+            trigger: ".contact-grid",
+            start: "top 85%",
           }
         }
       );
@@ -60,96 +78,72 @@ export function ContactSection() {
   };
 
   return (
-    <section ref={containerRef} id="contact" className="relative py-32 md:py-48 bg-foreground overflow-hidden z-10 w-full shrink-0">
+    <section ref={containerRef} id="contact" className="relative py-24 bg-transparent overflow-hidden w-full shrink-0 border-t border-border/50">
 
-      {/* Dark Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
+      {/* Subtle Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="mx-auto max-w-4xl px-6 relative z-10">
+      <div className="mx-auto max-w-3xl px-6 relative z-10 text-center">
 
-        {/* Floating Command Center */}
-        <div className="command-center relative p-[1px] rounded-[3rem] bg-gradient-to-b from-white/10 to-transparent shadow-[0_0_80px_rgba(0,0,0,0.5)]">
-          <div className="relative bg-background/5 backdrop-blur-3xl rounded-[calc(3rem-1px)] p-8 md:p-14 lg:p-16 border border-white/5 flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden">
-
-            {/* Inner glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-
-            {/* Left: Copy & Actions */}
-            <div className="w-full md:w-1/2 relative z-10 flex flex-col">
-              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 w-fit mb-8">
-                <TerminalIcon className="size-4 text-primary" />
-                <span className="text-secondary tracking-widest text-xs font-bold uppercase">
-                  {contact.kicker}
-                </span>
-              </div>
-
-              <h2 className="font-display text-4xl lg:text-5xl font-bold tracking-tight text-background leading-tight mb-4 drop-shadow-md">
-                Ready to <span className="text-primary italic">Deploy?</span>
-              </h2>
-              <p className="text-background/70 text-lg mb-10 w-full max-w-md">
-                Currently open for new opportunities. I reply swiftly and build faster. Let's engineer something great.
-              </p>
-
-              <a
-                href={`mailto:${site.email}`}
-                className="group relative inline-flex items-center justify-center gap-3 rounded-full bg-primary px-8 py-4 text-foreground font-bold overflow-hidden transition-transform duration-300 hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(253,196,53,0.3)] w-fit"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  Initiate Comms <ArrowUpRight className="size-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </span>
-                <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
-              </a>
-            </div>
-
-            {/* Right: Channels Grid */}
-            <div className="w-full md:w-1/2 relative z-10 grid grid-cols-1 gap-4">
-              {channels.map((channel) => (
-                <a
-                  key={channel.label}
-                  href={channel.href}
-                  target={channel.href.startsWith("http") ? "_blank" : undefined}
-                  rel={channel.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group flex items-center justify-between p-4 md:p-5 rounded-2xl bg-white/5 border border-white/5 hover:border-white/20 transition-all duration-300 hover:bg-white/10 hover:shadow-xl"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="flex size-12 items-center justify-center rounded-xl bg-white/10 text-background group-hover:scale-110 group-hover:text-primary transition-all duration-300 shadow-inner">
-                      <channel.icon className="size-5" />
-                    </div>
-                    <div>
-                      <p className="text-background/50 text-[0.65rem] font-bold tracking-widest uppercase mb-1">
-                        {channel.label}
-                      </p>
-                      <p className="text-background font-bold tracking-wide">
-                        {channel.value}
-                      </p>
-                    </div>
-                  </div>
-
-                  {channel.copy && (
-                    <button
-                      title="Copy to clipboard"
-                      className="flex size-10 items-center justify-center rounded-xl bg-background/10 text-background/60 hover:text-background hover:bg-white/20 transition-all duration-200"
-                      onClick={(e) => handleCopy(channel.value, channel.label, e)}
-                    >
-                      {copied === channel.label ? (
-                        <Check className="size-5 text-emerald-400" />
-                      ) : (
-                        <Copy className="size-5" />
-                      )}
-                    </button>
-                  )}
-
-                  {!channel.copy && (
-                    <div className="flex size-10 items-center justify-center rounded-xl bg-background/10 text-background/60 group-hover:text-background group-hover:bg-white/20 transition-all duration-200">
-                      <ArrowUpRight className="size-5" />
-                    </div>
-                  )}
-                </a>
-              ))}
-            </div>
-
-          </div>
+        <div className="contact-headline mb-12">
+          <span className="inline-block px-3 py-1 mb-6 rounded-full bg-surface-secondary text-primary font-bold text-xs tracking-widest uppercase border border-border shadow-sm">
+            {contact.kicker}
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl font-extrabold tracking-tight text-foreground drop-shadow-sm mb-4">
+            Let's build something <span className="text-3d italic pe-2">great</span>.
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+            I'm currently open for new opportunities. Whether it's a question, a project idea, or just saying hi — I'd love to hear from you.
+          </p>
         </div>
+
+        {/* Contact Links Grid */}
+        <div className="contact-grid flex flex-wrap justify-center gap-4 md:gap-6">
+          {channels.map((channel) => {
+            const Icon = channel.icon;
+            return (
+              <a
+                key={channel.label}
+                href={channel.href}
+                target={channel.href.startsWith("http") ? "_blank" : undefined}
+                rel={channel.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="contact-pill group relative flex items-center gap-3 p-2 pr-4 rounded-full bg-card shadow-md border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                onClick={channel.copy ? (e) => handleCopy(channel.value, channel.label, e) : undefined}
+              >
+                {/* Icon Circle */}
+                <span
+                  className="flex size-10 shrink-0 items-center justify-center rounded-full text-white shadow-inner transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                  style={{ backgroundColor: channel.color }}
+                >
+                  {channel.copy && copied === channel.label ? (
+                    <Check className="size-4" />
+                  ) : (
+                    <Icon className="size-4" />
+                  )}
+                </span>
+
+                {/* Text Group */}
+                <div className="flex flex-col items-start pr-2">
+                  <span className="text-[0.65rem] font-bold tracking-widest uppercase text-muted-foreground group-hover:text-foreground transition-colors">
+                    {channel.label}
+                  </span>
+                  <span className="text-sm font-semibold text-foreground">
+                    {channel.copy && copied === channel.label ? "Copied!" : channel.value}
+                  </span>
+                </div>
+
+                {/* Optional copy/link indicator icon */}
+                {!channel.copy && (
+                  <ArrowUpRight className="size-4 text-muted-foreground opacity-50 group-hover:opacity-100 transition-opacity absolute right-4 hidden sm:block" />
+                )}
+                {channel.copy && copied !== channel.label && (
+                  <Copy className="size-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity absolute right-4 hidden sm:block" />
+                )}
+              </a>
+            );
+          })}
+        </div>
+
       </div>
     </section>
   );

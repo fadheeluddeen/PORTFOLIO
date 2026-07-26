@@ -1,5 +1,6 @@
 import React from "react";
-import { Document, Page, Text, View, StyleSheet, Link } from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, Link, Image } from "@react-pdf/renderer";
+import path from "node:path";
 
 import {
   profile,
@@ -28,11 +29,26 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica",
     color: INK,
   },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  headerText: {
+    flex: 1,
+    alignItems: "center", // Keeps the text centered inside the main flexible area
+  },
+  photo: {
+    width: 64,
+    height: 64,
+    borderRadius: 32, // circular image
+    objectFit: "cover",
+    border: "2px solid #e2e6ea",
+  },
   name: {
     fontSize: 20,
     fontFamily: "Helvetica-Bold",
     color: ORANGE,
-    textAlign: "center",
   },
   title: {
     fontSize: 11,
@@ -138,19 +154,24 @@ export function ResumeDocument() {
   return (
     <Document>
       <Page size="A4" style={styles.page}>
-        <Text style={styles.name}>{profile.name.toUpperCase()}</Text>
-        <Text style={styles.title}>{profile.title}</Text>
-        <Text style={styles.roles}>{profile.roles.join("  •  ")}</Text>
-        <Text style={styles.contactRow}>
-          {profile.location} | {profile.phone} | {profile.email} |{" "}
-          <Link style={styles.link} src={profile.linkedin}>
-            LinkedIn
-          </Link>{" "}
-          |{" "}
-          <Link style={styles.link} src={profile.github}>
-            GitHub
-          </Link>
-        </Text>
+        <View style={styles.header}>
+          <View style={styles.headerText}>
+            <Text style={styles.name}>{profile.name.toUpperCase()}</Text>
+            <Text style={styles.title}>{profile.title}</Text>
+            <Text style={styles.roles}>{profile.roles.join("  •  ")}</Text>
+            <Text style={styles.contactRow}>
+              {profile.location} | {profile.phone} | {profile.email} |{" "}
+              <Link style={styles.link} src={profile.linkedin}>
+                LinkedIn
+              </Link>{" "}
+              |{" "}
+              <Link style={styles.link} src={profile.github}>
+                GitHub
+              </Link>
+            </Text>
+          </View>
+          <Image src={path.join(process.cwd(), "public", "profile.jpeg")} style={styles.photo} />
+        </View>
 
         <Text style={styles.sectionTitle}>Professional Summary</Text>
         <Text style={styles.paragraph}>{summary}</Text>
@@ -165,7 +186,7 @@ export function ResumeDocument() {
 
         <Text style={styles.sectionTitle}>Experience</Text>
         {jobs.map((job) => (
-          <View key={job.company} wrap={false}>
+          <View key={job.company}>
             <View style={styles.jobHeaderRow}>
               <Text style={styles.jobRole}>
                 {job.role} — {job.company}, {job.location}
@@ -183,28 +204,28 @@ export function ResumeDocument() {
 
         <Text style={styles.sectionTitle}>Projects</Text>
         {projectList.map((project) => (
-          <View key={project.title} style={styles.projectRow} wrap={false}>
+          <View key={project.title} style={styles.projectRow}>
             <Text style={styles.projectTitle}>
               {project.title} — <Text style={{ fontFamily: "Helvetica" }}>{project.subtitle}</Text>
             </Text>
-            <Text style={styles.bulletText}>{project.description}</Text>
+            <Text style={[styles.paragraph, { marginTop: 2 }]}>{project.description}</Text>
             <Text style={styles.projectTech}>Tech: {project.tags.join(", ")}</Text>
           </View>
         ))}
 
         <Text style={styles.sectionTitle}>Certifications &amp; Achievements</Text>
-        <Text style={styles.bulletText}>
+        <Text style={styles.paragraph}>
           {certificationItems
             .filter((c) => !c.title.includes("Internship"))
             .map((c) => c.title)
             .join(" · ")}
           .
         </Text>
-        <Text style={[styles.bulletText, { marginTop: 3 }]}>
+        <Text style={[styles.paragraph, { marginTop: 3 }]}>
           <Text style={{ fontFamily: "Helvetica-Bold" }}>Currently pursuing: </Text>
           {certificationsInProgress.join(" · ")}.
         </Text>
-        <Text style={[styles.bulletText, { marginTop: 3 }]}>
+        <Text style={[styles.paragraph, { marginTop: 3 }]}>
           <Text style={{ fontFamily: "Helvetica-Bold" }}>Achievements: </Text>
           {achievements.join(" ")}
         </Text>

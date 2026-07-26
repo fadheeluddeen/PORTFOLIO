@@ -1,4 +1,4 @@
-import { Linkedin } from "lucide-react";
+import { Linkedin, Download } from "lucide-react";
 import { site } from "@/data/portfolio";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -56,7 +56,7 @@ export function HeroSection() {
         }}
       >
         {/* Floating Navigation Inside Container */}
-        <nav className="absolute top-8 right-12 z-50 flex gap-8">
+        <nav className="absolute top-8 right-12 z-50 flex items-center gap-8">
           <a href="#about" className="text-sm font-semibold tracking-wider text-muted-foreground hover:text-foreground transition-colors">
             ABOUT
           </a>
@@ -66,13 +66,21 @@ export function HeroSection() {
           <a href="#contact" className="text-sm font-semibold tracking-wider text-muted-foreground hover:text-foreground transition-colors">
             CONTACT
           </a>
+          <a
+            href={site.resumePath}
+            download
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-bold tracking-wide shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+          >
+            <Download className="size-4" />
+            Resume
+          </a>
         </nav>
 
         {/* Left Side: Content */}
         <div className="relative z-10 flex w-full lg:w-7/12 flex-col px-10 md:px-16 lg:px-20 h-full pt-6 md:pt-8 pb-8 md:pb-12">
 
-          {/* Top Brand Name (In normal flow to prevent overlap) */}
-          <div className="text-lg md:text-2xl font-bold font-display tracking-wide text-muted-foreground/30 md:text-foreground z-0 pointer-events-none select-none">
+          {/* Brand name at top */}
+          <div className="text-lg md:text-2xl font-bold font-display tracking-wide text-muted-foreground/40 pointer-events-none select-none">
             {site.name}
           </div>
 

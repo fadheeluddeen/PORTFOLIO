@@ -29,7 +29,7 @@ export const summary =
   "Computer Science graduate (B.E., 2026) targeting AI/ML engineering roles, with hands-on experience building AI-driven applications, computer-vision/OCR pipelines, and full-stack systems. Skilled in Python and machine learning with practical exposure to LLMs, generative AI, prompt engineering, and deep learning, backed by full-stack and automation experience across two internships. Focused on building reliable, end-to-end intelligent systems.";
 
 export const skillGroups = [
-  { title: "Programming", icon: "code", tags: ["Python", "SQL", "JavaScript", "C", "C++"] },
+  { title: "Programming", icon: "code", tags: ["Python", "SQL", "JavaScript", "TypeScript", "C", "C++", "C#"] },
   {
     title: "AI / ML",
     icon: "psychology",
@@ -42,28 +42,38 @@ export const skillGroups = [
       "Generative AI",
       "LLMs",
       "Prompt Engineering",
+      "OCR",
     ],
   },
   {
     title: "ML Libraries & Tools",
     icon: "auto_awesome",
-    tags: ["PyTorch", "TensorFlow", "scikit-learn", "NumPy", "Pandas", "Matplotlib", "OpenCV", "EasyOCR", "Hugging Face"],
+    tags: ["PyTorch", "TensorFlow / Keras", "scikit-learn", "NumPy", "Pandas", "Matplotlib", "OpenCV", "EasyOCR", "Hugging Face"],
   },
   {
-    title: "Data & Visualization",
-    icon: "insights",
-    tags: ["Power BI", "Excel", "SQL", "Data Analysis", "Dashboards"],
+    title: "Generative AI",
+    icon: "auto_awesome",
+    tags: ["Google Gemini (Gemini Vision)", "Qwen2.5-VL", "Claude AI", "@google/genai SDK"],
   },
   {
-    title: "Web & Backend",
+    title: "Web & Frontend",
     icon: "dns",
-    tags: ["React.js", "Node.js", "Express.js", "REST APIs", "HTML5", "CSS3"],
+    tags: ["React 19", "Vite", "Tailwind CSS v4", "shadcn/ui", "GSAP", "Framer Motion", "HTML5", "CSS3"],
   },
-  { title: "Databases", icon: "database", tags: ["MySQL", "PostgreSQL", "MongoDB", "Firebase"] },
+  {
+    title: "Backend & APIs",
+    icon: "dns",
+    tags: ["Node.js", "Express.js", "Flask", "ASP.NET Core (.NET 8)", "REST APIs"],
+  },
+  {
+    title: "Databases",
+    icon: "database",
+    tags: ["Firebase (Firestore, Auth, Storage)", "MySQL", "PostgreSQL", "MongoDB", "SQLite"],
+  },
   {
     title: "DevOps & Tools",
     icon: "terminal",
-    tags: ["Git", "GitHub", "Docker", "Linux", "n8n", "CI/CD", "VS Code"],
+    tags: ["Git", "GitHub", "GitHub Actions (CI/CD)", "Docker", "Linux", "n8n", "VS Code", "Google AI Studio"],
   },
 ] as const;
 
@@ -236,13 +246,20 @@ export const certificationItems = [
   },
   { title: "Mathematics for Machine Learning and Data Science", org: "Coursera" },
   { title: "Supervised Machine Learning: Regression and Classification", org: "Coursera" },
-  { title: "Deep Learning & Neural Networks", org: "Coursera" },
+  { title: "Deep Learning & Neural Networks", org: "Coursera", year: "2024" },
+  { title: "Google Cloud Certification", org: "Google Cloud", year: "2024", image: "google-cloud-certification.png" },
 ] as const;
 
+/**
+ * "Currently reading" shelf — things in progress right now, not yet completed.
+ * Plain strings, same as before; the bookshelf component renders each one as
+ * a book spine with no image needed.
+ */
 export const certificationsInProgress = [
   "Claude AI (Anthropic) certification course",
   "Microsoft Azure Cloud AI",
-  "Google Cloud",
+  "Machine Learning — studying at Gradtwin, Chennai",
+  "Generative AI with Large Language Models — DeepLearning.AI (Coursera)",
 ] as const;
 
 export const achievements = [

@@ -29,7 +29,7 @@ export default function App() {
       <div className="w-full flex-col overflow-x-hidden relative z-10 bg-transparent">
         <HeroSection />
 
-        <div className="w-full flex-col bg-background/50 backdrop-blur-sm sm:px-12 px-4 py-8 lg:px-24">
+        <div className="w-full flex-col sm:px-12 px-4 py-8 lg:px-24">
           <div className="mb-24 mt-12" id="about">
             <AboutSection />
           </div>

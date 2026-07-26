@@ -55,7 +55,7 @@ export function AboutSection() {
     <section ref={sectionRef} id="about" className="relative py-32 md:py-48 overflow-hidden z-10 w-full shrink-0">
 
       {/* Background large editorial text */}
-      <div className="absolute top-10 left-[-5%] text-[15vw] font-display font-bold leading-none text-muted/30 select-none hidden md:block whitespace-nowrap z-0">
+      <div className="absolute top-10 left-[-5%] text-[15vw] font-display font-bold leading-none text-foreground/5 select-none hidden md:block whitespace-nowrap z-[-10]">
         ABOUT ME.
       </div>
 

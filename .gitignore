@@ -27,3 +27,20 @@ public/Fadheeluddeen_Resume.pdf
 .agents/
 SKILL.md
 skills-lock.json
+
+# Scratch / debug / test artifacts (kept local, not part of the site)
+build-log.txt
+build.txt
+dev-log.txt
+git-remote.txt
+layout.txt
+log.txt
+tsc-err.txt
+tsc-out.txt
+unused.txt
+vite-out.txt
+find-unused.py
+test.py
+test-pdf.ts
+test.pdf
+test_page.png
